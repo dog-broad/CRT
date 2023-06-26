@@ -2,5 +2,6 @@
     "C_Cpp.errorSquiggles": "enabled",
     "files.associations": {
         "stdio.h": "c"
-    }
+    },
+    "gitdoc.enabled": true
 }
