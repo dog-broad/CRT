@@ -1,0 +1,12 @@
+Giga
+Tera
+n%k
+~n
+BaseAddress
+ByteSize
+Variadic
+stdarg
+listObject
+NumberOfArgs
+DataType
+Deallocates
