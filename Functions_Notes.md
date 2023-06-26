@@ -234,14 +234,14 @@ While storing this character array, a compiler takes a null character at the end
 - `%[^\n]` for multiple words
 
 ## String - Inbuilt Functions
-- `strlen()` --> Returns the length of the string
-- `strrev()` --> Returns the reverse of the string
-- `strcpy()` --> Copies one string to another string
-- `strncpy()` --> Copies 'n' number of characters from the string
-- `strcmp()` --> Compares two strings
-- `strcat()` --> Concatenates two strings
-- `strlwr()` --> Converts a string to lowercase
-- `strupr()` --> Converts a string to uppercase
+- `strlen()` ⇒ Returns the length of the string
+- `strrev()` ⇒ Returns the reverse of the string
+- `strcpy()` ⇒ Copies one string to another string
+- `strncpy()` ⇒ Copies 'n' number of characters from the string
+- `strcmp()` ⇒ Compares two strings
+- `strcat()` ⇒ Concatenates two strings
+- `strlwr()` ⇒ Converts a string to lowercase
+- `strupr()` ⇒ Converts a string to uppercase
 
 ```c
 // String concatenation
