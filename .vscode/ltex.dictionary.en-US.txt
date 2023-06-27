@@ -10,3 +10,4 @@ listObject
 NumberOfArgs
 DataType
 Deallocates
+k-ary
