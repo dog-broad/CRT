@@ -1,7 +1,18 @@
 #include<stdio.h>
+#include<string.h>
 
-// TCS NINJA question
+// Take an integer input n. Take another input string. Print string of n chars.
+
 int main(){
-    char arr[] = {'C', 'A', 'T'};
-    printf("%s", arr);  // CAT + Garbage value
+    int n;
+    char str[100];
+    scanf("%d", &n);
+    // input string with spaces
+    scanf("%[^\n]s", str);
+    if(n > strlen(str)){
+        // print string
+        puts(str);
+        return 0;
+    }
+    return 0;
 }
