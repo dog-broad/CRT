@@ -1,24 +1,24 @@
 #include <stdio.h>
+#include <math.h>
+
+#include <stdio.h>
 
 int main(){
-    // reverse a string without strrev
-    char str[2000];
-    // scan till new line
-    scanf("%[^\n]s", str);
-    // reverse
-    int i = 0;
-    int j = 0;
-    while(str[i] != '\0'){
-        i++;
+    long long n;
+    scanf("%lld", &n);
+    long long arr[n];
+    for(long long i = 0; i < n; i++){
+        scanf("%lld", &arr[i]);
     }
-    i--;
-    while(i > j){
-        char temp = str[i];
-        str[i] = str[j];
-        str[j] = temp;
-        i--;
-        j++;
+    long long k;
+    scanf("%lld", &k);
+    long long index = -1;
+    for(long long i = 0; i < n; i++){
+        if(arr[i] == k){
+            index = i;
+            break;
+        }
     }
-    printf("%s", str);
+    printf("%lld", index);
     return 0;
 }
