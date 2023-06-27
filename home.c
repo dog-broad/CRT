@@ -1,15 +1,24 @@
 #include <stdio.h>
 
 int main(){
-    int sum = 0;
-    // with n as buffer take string input
-    char str[5000];
-    scanf("%5000s", str);
-    for(int i = 0; str[i] != '\0'; i++){
-        // if digit add to sum
-        if(str[i] >= '0' && str[i] <= '9'){
-            sum += str[i] - '0';
-        }
+    // reverse a string without strrev
+    char str[2000];
+    // scan till new line
+    scanf("%[^\n]s", str);
+    // reverse
+    int i = 0;
+    int j = 0;
+    while(str[i] != '\0'){
+        i++;
     }
-    printf("%d", sum);
+    i--;
+    while(i > j){
+        char temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
+        i--;
+        j++;
+    }
+    printf("%s", str);
+    return 0;
 }
