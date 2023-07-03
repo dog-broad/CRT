@@ -4,21 +4,19 @@
 #include <stdio.h>
 
 int main(){
-    long long n;
-    scanf("%lld", &n);
-    long long arr[n];
-    for(long long i = 0; i < n; i++){
-        scanf("%lld", &arr[i]);
+    int t; 
+    scanf("%d",&t);
+    for(int a0 = 0; a0 < t; a0++){
+        int n; 
+        scanf("%d",&n);
+        n--;
+        int n3 = n / 3;
+        int n5 = n / 5;
+        int n15 = n / 15;
+        int sum3 = 3 * n3 * (n3 + 1) / 2;
+        int sum5 = 5 * n5 * (n5 + 1) / 2;
+        int sum15 = 15 * n15 * (n15 + 1) / 2;
+        printf("%d\n", sum3 + sum5 - sum15);
     }
-    long long k;
-    scanf("%lld", &k);
-    long long index = -1;
-    for(long long i = 0; i < n; i++){
-        if(arr[i] == k){
-            index = i;
-            break;
-        }
-    }
-    printf("%lld", index);
     return 0;
 }
