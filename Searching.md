@@ -101,10 +101,10 @@ int binarySearch(int arr[], int n, int key){
     the function returns 0, indicating that 
     the key is not present in the array.
     */
-    if(k < arr[low] || k > arr[high])
+    if(key < arr[low] || key > arr[high])
         return 0;
     while(low <= high){
-        int mid = low + (high-low)/2;
+        int mid = (low+high) >> 1;
         if(arr[mid] == key){
             return 1;
         }
