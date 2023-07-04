@@ -176,5 +176,12 @@ int bianrySearch2(int arr[], int n, int k, int low, int high){
         int mid = ((low + high)>>1);
         if(arr[mid] == k)
             return 1;
+        if(k < arr[mid])
+            return binarySearch2(arr, n, k, low, mid-1);
+        else
+            return binarySearch2(arr, n, k, mid+1, high);
     }
+    return 0;
 }
+
+int binarySearch(int arr[])
