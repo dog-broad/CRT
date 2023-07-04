@@ -171,7 +171,7 @@ int main(){
 ```c
 #include <stdio.h>
 
-int bianrySearch2(int arr[], int n, int k, int low, int high){
+int binarySearch2(int arr[], int n, int k, int low, int high){
     if(low <= high){
         int mid = ((low + high)>>1);
         if(arr[mid] == k)
@@ -184,4 +184,22 @@ int bianrySearch2(int arr[], int n, int k, int low, int high){
     return 0;
 }
 
-int binarySearch(int arr[])
+int binarySearch(int arr[], int n, int k){
+    if(k < arr[0] || k > arr[n-1])
+        return 0;
+    return binarySearch2(arr, n, k, 0, n-1);
+}
+
+int main(){
+    int n;
+    scanf("%d", &n);
+    int arr[n];
+    for(int i=0; i<n; i++){
+        scanf("%d", &arr[i]);
+    }
+    int key;
+    scanf("%d", &key);
+    printf("%d", binarySearch(arr, n, key));
+    return 0;
+}
+```
