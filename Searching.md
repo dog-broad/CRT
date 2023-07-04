@@ -211,3 +211,11 @@ int main(){
 - Additionally, the iterative method is faster because it avoids the overhead of function calls that are required in the recursive method.
 
 However, the recursive method is easier to understand and implement. It is also more elegant and can be used in situations where the size of the input is small or the performance of the algorithm is not critical.
+
+| Iterative Method | Recursive Method |
+| --- | --- |
+| Uses a loop to perform the search | Uses function calls to perform the search |
+| Requires less memory | Requires more memory due to function call overhead |
+| Faster due to avoiding function call overhead | Can be slower due to function call overhead |
+| More complex to understand and implement | Easier to understand and implement |
+| Generally preferred for large input sizes or critical performance | Can be used for small input sizes or non-critical performance |
