@@ -166,3 +166,15 @@ int main(){
     printf("%d", binarySearchRecursive(arr, 0, n-1, key));
 }
 ```
+
+#### Lecturer's version
+```c
+#include <stdio.h>
+
+int bianrySearch2(int arr[], int n, int k, int low, int high){
+    if(low <= high){
+        int mid = ((low + high)>>1);
+        if(arr[mid] == k)
+            return 1;
+    }
+}
