@@ -203,3 +203,11 @@ int main(){
     return 0;
 }
 ```
+
+- Both iterative and recursive methods of binary search have their own advantages and disadvantages.
+
+- The iterative method is generally preferred over the recursive method because it is more efficient in terms of space and time complexity. 
+- The iterative method uses a loop to perform the search, which requires less memory than the recursive method. 
+- Additionally, the iterative method is faster because it avoids the overhead of function calls that are required in the recursive method.
+
+However, the recursive method is easier to understand and implement. It is also more elegant and can be used in situations where the size of the input is small or the performance of the algorithm is not critical.
