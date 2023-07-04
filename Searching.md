@@ -90,6 +90,8 @@ It can be done in two ways
 - Iterative Method
 - Recursive method
 
+> Iterative Method
+
 ```c
 #include <stdio.h>
 
@@ -128,5 +130,39 @@ int main(){
     int key;
     scanf("%d", &key);
     printf("%d", binarySearch(arr, n, key));
+}
+```
+
+> Recursive method
+
+```c
+#include <stdio.h>
+
+int binarySearchRecursive(int arr[], int low, int high, int key){
+    if(low > high){
+        return 0;
+    }
+    int mid = (low+high) >> 1;
+    if(arr[mid] == key){
+        return 1;
+    }
+    else if(arr[mid] < key){
+        return binarySearchRecursive(arr, mid+1, high, key);
+    }
+    else{
+        return binarySearchRecursive(arr, low, mid-1, key);
+    }
+}
+
+int main(){
+    int n;
+    scanf("%d", &n);
+    int arr[n];
+    for(int i=0; i<n; i++){
+        scanf("%d", &arr[i]);
+    }
+    int key;
+    scanf("%d", &key);
+    printf("%d", binarySearchRecursive(arr, 0, n-1, key));
 }
 ```
