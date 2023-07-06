@@ -1,4 +1,4 @@
-<h3>Inbuilt c function for sorting</h3> 
+# Inbuilt C function for sorting
 
 ```c
 #include<stdio.h>
@@ -14,6 +14,9 @@ int main(){
     for(i=0;i<n;i++)
     printf("%d",arr[i]);
 }
+```
+
+# Inbuilt C function for binary search
 ```c
 // inbuilt binary search
 #include<stdio.h>
