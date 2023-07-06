@@ -10,7 +10,7 @@ struct CSD  //Abstract Structure
 {
     int id; char grade; double per;
 };
-struct CSD setStudent(int i, char g, double p)
+struct CSD setStudent(int i, char g, double p) //Setter
 {
     struct CSD o;
     o.id=i;
@@ -18,7 +18,7 @@ struct CSD setStudent(int i, char g, double p)
     o.per=p; 
     return o;
 }
-void printStudent(struct CSD o)
+void printStudent(struct CSD o)   //Getter
 {
     printf("ID: %d \tGrade: %c\tPercentage: %lf\n", o.id, o.grade, o.per);
 }

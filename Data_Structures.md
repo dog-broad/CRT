@@ -195,18 +195,34 @@ void printStudent(struct CSD o){
 }
 
 int main(){
-    int n;
+    int n, i;
     printf("Enter the number of students: ");
     scanf("%d", &n);
     struct CSD std[n];
-    for(int i = 0; i < n; i++){
+    for(i = 0; i < n; i++){
         printf("Enter %d student's ID, Grade, Percentage: ", i);
         scanf("%d %c %lf", &std[i].id, &std[i].grade, &std[i].percentage);
     }
     puts("Student Details: \n");
-    for(int i = 0; i < n; i++){
+    for(i = 0; i < n; i++){
         printStudent(std[i]);
+        printf("\n")
     }
     return 0;
 }
+```
+> *OUTPUT*:
+```
+Enter the number of students: 2
+Enter 0 student's ID, Grade, Percentage: 123 A 96
+Enter 1 student's ID, Grade, Percentage: 321 Z 0.0002
+Student Details:
+
+ID: 123
+Grade: A
+Percentage: 96.000000
+
+ID: 321
+Grade: Z
+Percentage: 0.000200
 ```
