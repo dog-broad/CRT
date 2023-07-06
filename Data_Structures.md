@@ -319,3 +319,37 @@ enum week{
 // week => enumeration
 // monday, tuesday => enumerators
 // monday = 0, tuesday = 1 => values
+int main(){
+    enum week today;
+    today = Wednesday;
+    printf("Day %d", today+1);
+    return 0;
+}
+```
+
+> *OUTPUT*:
+```
+Day 3
+```
+
+If value of enum is predefined, then we can use it directly.
+
+```c
+#include <stdio.h>
+
+enum week{
+    Monday = 90, Tuesday
+};
+
+int main(){
+    printf("%d %d", Monday, Tuesday);
+    return 0;
+}
+```
+
+> *OUTPUT*:
+```
+90 91
+```
+
+The value next to the previous value is automatically incremented by 1.
