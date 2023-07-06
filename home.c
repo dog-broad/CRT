@@ -1,38 +1,26 @@
 #include <stdio.h>
 
-int binarySearch(int arr[], int n, int key){
-    int low = 0, high = n-1;
-    /*
-    If the key is less than the first element of the array
-    or greater than the last element of the array, 
-    the function returns 0, indicating that 
-    the key is not present in the array.
-    */
-    if(key < arr[low] || key > arr[high])
-        return 0;
-    while(low <= high){
-        int mid = (low+high) >> 1;
-        if(arr[mid] == key){
-            return 1;
-        }
-        else if(arr[mid] < key){
-            low = mid+1;
-        }
-        else{
-            high = mid-1;
-        }
-    }
-    return 0;
+struct CSD{ // Abstract Structure
+    int id;
+    char grade;  // char grade = 'A'; will give error
+    double percentage;
+};
+
+struct CSD setStudent(int i, char g, double p){
+    struct CSD o;   // Creating an object of structure type
+    o.id = i;
+    o.grade = g;
+    o.percentage = p;
+};
+
+void printStudent(struct CSD o){
+    printf("ID: %d\n", o.id);
+    printf("Grade: %c\n", o.grade);
+    printf("Percentage: %lf\n", o.percentage);
 }
 
 int main(){
-    int n;
-    scanf("%d", &n);
-    int arr[100];
-    for(int i=0; i<n; i++){
-        scanf("%d", &arr[i]);
-    }
-    int key;
-    scanf("%d", &key);
-    printf("%d", binarySearch(arr, n, key));
+    struct CSD std1, std2; // Creating variables of structure type
+    std1 = setStudent(23, 'A', 99.8);
+    std2 = setStudent(24, 'B', 88.9);
 }

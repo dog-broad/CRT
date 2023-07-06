@@ -3,12 +3,12 @@
 ## Data types
 
 There are two types of data types in C:
-1. Inbuilt data types (int, float, char, double, etc.)
+1. Primitive data types (int, float, char, double, etc.)
 2. User defined data types (structures, unions, enumerations)
 
 ```mermaid  
 graph LR
-A[Data Types] --> B(Inbuilt Data Types)
+A[Data Types] --> B(Primitive Data Types)
 A --> C(User Defined Data Types)
 B -->|int| D((Integer = 1, 2, 3, 4...))
 B -->|float| E((Floating Point = 1.2, 3.4, 5.6...))
@@ -19,3 +19,72 @@ C -->|unions| I((Marks = maths, physics, chemistry))
 C -->|enumerations| J((Days = Monday, Tuesday, Wednesday...))
 ```
 
+## Structures
+A structure is a user-defined data type in C that groups together related data of different data types. It allows us to create a more complex data type that can be used to represent a real-world entity.
+
+### Structure Declaration
+The general syntax for declaring a structure is:
+
+```c
+struct structureName {
+    dataType member1;
+    dataType member2;
+    ...
+    dataType memberN;
+};
+```
+
+Example:
+
+```c
+#include <stdio.h>
+
+struct CSD{ // Abstract Structure
+    int id;
+    char grade;  // char grade = 'A'; will give error
+    double percentage;
+};
+
+int main(){
+    ....
+}
+```
+
+> We cannot declare the values of the structure in the structure declaration.  
+> We can only declare the structure in the structure declaration.  
+> To declare the values of the structure, we need to create variables of that structure type.
+<br>
+<br>
+
+**Abstraction**: Displaying only essential information and hiding the details.
+
+
+Providing values to the structure:
+
+```c
+#include <stdio.h>
+
+struct CSD{ // Abstract Structure
+    int id;
+    char grade;  // char grade = 'A'; will give error
+    double percentage;
+};
+
+struct CSD setStudent(int i, char g, double p){
+    struct CSD o;   // Creating an object of structure type
+    o.id = i;
+    o.grade = g;
+    o.percentage = p;
+}
+
+void printStudent(struct CSD o){
+    printf("ID: %d\n", o.id);
+    printf("Grade: %c\n", o.grade);
+    printf("Percentage: %lf\n", o.percentage);
+}
+
+int main(){
+    struct CSD std1, std2; // Creating variables of structure type
+    std1 = setStudent(23, 'A', 99.8);
+    std2 = setStudent(24, 'B', 88.9);
+}
