@@ -143,6 +143,7 @@ int main(){
 
 1. We cannot perform initialization within the structure declaration.
 2. Each object has its own state and behavior.
+3. An object created within structure defaults to 0, else to garbage.
    
 ```c
 #include <stdio.h>
