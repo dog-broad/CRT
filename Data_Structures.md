@@ -202,4 +202,7 @@ int main(){
         printf("Enter %d student's ID, Grade, Percentage: ", i);
         scanf("%d %c %lf", &std[i].id, &std[i].grade, &std[i].percentage);
     }
+    for(int i = 0; i < n; i++){
+        printStudent(std[i]);
+    }
 }
