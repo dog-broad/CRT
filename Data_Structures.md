@@ -167,3 +167,39 @@ Object created within structure declaration defaults to 0.
 Char will be deafulted to space.
 
 - It is preferable to declare the structure outside the main function.
+
+### Structure Array
+
+```c
+#include <stdio.h>
+
+struct CSD{ // Abstract Structure
+    int id;
+    char grade;  // char grade = 'A'; will give error
+    double percentage;
+};
+
+struct CSD setStudent(int i, char g, double p){
+    struct CSD o;   // Creating an object of structure type
+    o.id = i;
+    o.grade = g;
+    o.percentage = p;
+    return o;
+};
+
+void printStudent(struct CSD o){
+    printf("ID: %d\n", o.id);
+    printf("Grade: %c\n", o.grade);
+    printf("Percentage: %lf\n", o.percentage);
+}
+
+int main(){
+    int n;
+    printf("Enter the number of students: ");
+    scanf("%d", &n);
+    struct CSD std[n];
+    for(int i = 0; i < n; i++){
+        printf("Enter %d student's ID, Grade, Percentage: ", i);
+        scanf("%d %c %lf", &std[i].id, &std[i].grade, &std[i].percentage);
+    }
+}
