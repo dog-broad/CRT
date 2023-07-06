@@ -113,3 +113,22 @@ int main(){
     printStudent(std1); printStudent(std2);
 }
 ```
+
+Smaller code:
+
+```c
+#include <stdio.h>
+
+struct CSD{ // Abstract Structure
+    int id;
+    char grade;
+    double percentage;
+};
+
+int main(){
+    struct CSD std1, std2;
+    std1.grade = 'A';
+    printf("Grade: %c\n", std2.grade);  // Doesn't give error but gives garbage value
+    // assiginig values to the structure 1 doesn't affect the structure 2
+    return 0;
+}
