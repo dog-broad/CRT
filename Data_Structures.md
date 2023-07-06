@@ -301,3 +301,21 @@ enum enumName {
     constantN;
 };
 ```
+
+Example:
+    
+```c
+#include <stdio.h>
+// Enumerations
+enum week{
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+    Sunday
+};
+// week => enumeration
+// monday, tuesday => enumerators
+// monday = 0, tuesday = 1 => values
