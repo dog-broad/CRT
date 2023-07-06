@@ -132,3 +132,4 @@ int main(){
     // assiginig values to the structure 1 doesn't affect the structure 2
     return 0;
 }
+```
