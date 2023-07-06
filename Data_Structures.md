@@ -10,11 +10,12 @@ There are two types of data types in C:
 graph LR
 A[Data Types] --> B(Inbuilt Data Types)
 A --> C(User Defined Data Types)
-B -->|int| D((Integer))
-B -->|float| E((Floating Point))
-B -->|char| F((Character))
-B -->|double| G((Double))
-C -->|structures| H((Employee))
-C -->|unions| I((Marks))
-C -->|enumerations| J((Days))
+B -->|int| D((Integer = 1, 2, 3, 4...))
+B -->|float| E((Floating Point = 1.2, 3.4, 5.6...))
+B -->|char| F((Character = 'a', 'b', 'c'...))
+B -->|double| G((Double = 1.234, 2.345, 3.456...))
+C -->|structures| H((Employee = name, age, salary))
+C -->|unions| I((Marks = maths, physics, chemistry))
+C -->|enumerations| J((Days = Monday, Tuesday, Wednesday...))
 ```
+
