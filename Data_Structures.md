@@ -228,3 +228,4 @@ Percentage: 0.000200
 ```
 
 ## Unions
+A union is a user-defined data type that allows storing different data types in the same memory location. Only one member of the union can be accessed at a time.
