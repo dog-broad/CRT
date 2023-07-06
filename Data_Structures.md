@@ -229,3 +229,43 @@ Percentage: 0.000200
 
 ## Unions
 A union is a user-defined data type that allows storing different data types in the same memory location. Only one member of the union can be accessed at a time.
+
+### Union Properties
+
+- A union can have multiple members, but only one member can contain a value at any given time.
+- If the value of one member is changed, then the values of all other members will be changed.
+
+### Union Declaration
+
+The general syntax for declaring a union is:
+
+```c
+union unionName {
+    dataType member1;
+    dataType member2;
+    ...
+    dataType memberN;
+};
+```
+
+Example:
+
+```c
+#include <stdio.h>
+// Union Declaration
+union CSD{
+    int year1, year2, year3;
+    // int year1 = 2000; will give error
+    // Union is also an abstract data type like structure
+}
+
+int main(){
+    std1.year1 = 2024;
+    printf("%d", std1.year2);  // Gives output 2024
+
+    std1.year1 = 2024;
+    std1.year3 = 2025;
+    printf("%d %d %d", std1.year1, std1.year2, std1.year3);  
+    // Gives output 2025 2025 2025
+    return 0;
+}
