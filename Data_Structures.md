@@ -354,3 +354,11 @@ The value next to the previous value is automatically incremented by 1.
 
 - Once the value of an enumerator is defined, it cannot be changed.
 - If we don't assign values to enum names, then they are automatically assigned values starting from 0.
+
+### Enumeration Rules
+
+1. Object is not required to access the enum values.
+2. First enum value is assigned 0, and then the next value is incremented by 1 by default.
+3. If we don't assign values to enum names, then they are automatically assigned values starting from 0.
+4. An enumerator's value is previous enumerator's value + 1.
+5. Enumerators can be initialized to values of any integer type but cannot be changed outside the enum declaration. Enumerators are CONSTANTS.
