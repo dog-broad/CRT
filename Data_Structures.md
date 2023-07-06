@@ -353,3 +353,6 @@ int main(){
 ```
 
 The value next to the previous value is automatically incremented by 1.
+
+- Once the value of an enumerator is defined, it cannot be changed.
+- If we don't assign values to enum names, then they are automatically assigned values starting from 0.
