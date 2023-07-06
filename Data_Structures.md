@@ -272,3 +272,9 @@ int main(){
 }
 ```
 > All variables in CSD share the same address
+
+<b>*OUTPUT*</b>:
+```
+2024
+2025 2025 2025
+```
