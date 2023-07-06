@@ -171,10 +171,51 @@ int main(){
 ```c
 #include <stdio.h>
 
-int bianrySearch2(int arr[], int n, int k, int low, int high){
+int binarySearch2(int arr[], int n, int k, int low, int high){
     if(low <= high){
         int mid = ((low + high)>>1);
         if(arr[mid] == k)
             return 1;
+        if(k < arr[mid])
+            return binarySearch2(arr, n, k, low, mid-1);
+        else
+            return binarySearch2(arr, n, k, mid+1, high);
     }
+    return 0;
 }
+
+int binarySearch(int arr[], int n, int k){
+    if(k < arr[0] || k > arr[n-1])
+        return 0;
+    return binarySearch2(arr, n, k, 0, n-1);
+}
+
+int main(){
+    int n;
+    scanf("%d", &n);
+    int arr[n];
+    for(int i=0; i<n; i++){
+        scanf("%d", &arr[i]);
+    }
+    int key;
+    scanf("%d", &key);
+    printf("%d", binarySearch(arr, n, key));
+    return 0;
+}
+```
+
+- Both iterative and recursive methods of binary search have their own advantages and disadvantages.
+
+- The iterative method is generally preferred over the recursive method because it is more efficient in terms of space and time complexity. 
+- The iterative method uses a loop to perform the search, which requires less memory than the recursive method. 
+- Additionally, the iterative method is faster because it avoids the overhead of function calls that are required in the recursive method.
+
+However, the recursive method is easier to understand and implement. It is also more elegant and can be used in situations where the size of the input is small or the performance of the algorithm is not critical.
+
+| Iterative Method | Recursive Method |
+| --- | --- |
+| Uses a loop to perform the search | Uses function calls to perform the search |
+| Requires less memory | Requires more memory due to function call overhead |
+| Faster due to avoiding function call overhead | Can be slower due to function call overhead |
+| More complex to understand and implement | Easier to understand and implement |
+| Generally preferred for large input sizes or critical performance | Can be used for small input sizes or non-critical performance |

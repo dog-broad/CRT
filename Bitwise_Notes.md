@@ -133,7 +133,7 @@ The Left Shift (<<) operator moves the bits of a number to the left and fills in
    10 << 3 ==>  1010 <<3   ==> 1010000(80)
 ```
 
-> n << k ⇒ n * 2^k
+> N << K ⇒ N * 2^K
 
 ---
 
@@ -148,7 +148,7 @@ The Right Shift (>>) operator moves the bits of a number to the right and fills 
    22 >> 3 ==>  10110 >>3   ==> 10(2)
 ```
 
-> n >> k ⇒ n / 2^k
+> N >> K ⇒ N / 2^K
 
 ---
 

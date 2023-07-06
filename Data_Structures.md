@@ -1,0 +1,169 @@
+# Daat Structures
+
+## Data types
+
+There are two types of data types in C:
+1. Primitive data types (int, float, char, double, etc.)
+2. User defined data types (structures, unions, enumerations)
+
+```mermaid  
+graph LR
+A[Data Types] --> B(Primitive Data Types)
+A --> C(User Defined Data Types)
+B -->|int| D((Integer = 1, 2, 3, 4...))
+B -->|float| E((Floating Point = 1.2, 3.4, 5.6...))
+B -->|char| F((Character = 'a', 'b', 'c'...))
+B -->|double| G((Double = 1.234, 2.345, 3.456...))
+C -->|structures| H((Employee = name, age, salary))
+C -->|unions| I((Marks = maths, physics, chemistry))
+C -->|enumerations| J((Days = Monday, Tuesday, Wednesday...))
+```
+
+## Structures
+A structure is a user-defined data type in C that groups together related data of different data types. It allows us to create a more complex data type that can be used to represent a real-world entity.
+
+### Structure Declaration
+The general syntax for declaring a structure is:
+
+```c
+struct structureName {
+    dataType member1;
+    dataType member2;
+    ...
+    dataType memberN;
+};
+```
+
+Example:
+
+```c
+#include <stdio.h>
+
+struct CSD{ // Abstract Structure
+    int id;
+    char grade;  // char grade = 'A'; will give error
+    double percentage;
+};
+
+int main(){
+    ....
+}
+```
+
+> We cannot declare the values of the structure in the structure declaration.  
+> We can only declare the structure in the structure declaration.  
+> To declare the values of the structure, we need to create variables of that structure type.
+<br>
+<br>
+
+**Abstraction**: Displaying only essential information and hiding the details.
+
+**Encapsulation**: Putting group of data together and hiding that information by using access modifiers.
+<br>
+<br>
+
+
+Providing values to the structure:
+
+```c
+#include <stdio.h>
+
+struct CSD{ // Abstract Structure
+    int id;
+    char grade;  // char grade = 'A'; will give error
+    double percentage;
+};
+
+struct CSD setStudent(int i, char g, double p){
+    struct CSD o;   // Creating an object of structure type
+    o.id = i;
+    o.grade = g;
+    o.percentage = p;
+    return o;
+};
+
+void printStudent(struct CSD o){
+    printf("ID: %d\n", o.id);
+    printf("Grade: %c\n", o.grade);
+    printf("Percentage: %lf\n", o.percentage);
+}
+
+int main(){
+    struct CSD std1, std2; // Creating variables of structure type
+    std1 = setStudent(23, 'A', 99.8);
+    std2 = setStudent(24, 'B', 88.9);
+    printStudent(std1);
+    printStudent(std2);
+    return 0;
+}
+```
+
+#### Lecturer's code:
+
+```c
+#include <stdio.h>
+//abstraction
+struct CSD{// abstract structure
+    int id; char grade; double per;
+};
+struct CSD setStudent(int i, char g, double p)
+{ struct CSD o; o.id=i;  o.grade = g; o.per = p; return o; }
+void printStudent(struct CSD o)
+{ printf("ID: %d Grade: %c Percentage: %lf\n", o.id, o.grade, o.per); }
+int main(){
+    struct CSD std1, std2;
+    std1 = setStudent(523, 'A', 99.8);
+    std2 = setStudent(568, 'B', 88.9);
+    printStudent(std1); printStudent(std2);
+}
+```
+
+Smaller code:
+
+```c
+#include <stdio.h>
+
+struct CSD{ // Abstract Structure
+    int id;
+    char grade;
+    double percentage;
+};
+
+int main(){
+    struct CSD std1, std2;
+    std1.grade = 'A';
+    printf("Grade: %c\n", std2.grade);  // Doesn't give error but gives garbage value
+    // assiginig values to the structure 1 doesn't affect the structure 2
+    return 0;
+}
+```
+
+
+### Strucure Rules
+
+1. We cannot perform initialization within the structure declaration.
+2. Each object has its own state and behavior.
+   
+```c
+#include <stdio.h>
+
+struct CSD{ // Abstract Structure
+    int id;
+    char grade;
+    double percentage;
+}std1, std2; // Creating variables/Objects of structure type
+
+int main(){
+    std1.id = 90;
+    printf("%d", std2.id);
+}
+```
+> OUTPUT:
+```
+ 0
+```
+
+Object created within structure declaration defaults to 0.  
+Char will be deafulted to space.
+
+- It is preferable to declare the structure outside the main function.

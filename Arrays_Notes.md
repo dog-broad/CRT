@@ -28,7 +28,7 @@ int a[40000]; // error :array size is too large
 int a[stack size/int size];
 int a[65535/2]; // int a[32767]; bytes only
 ```
-## Initializations
+## Initialization
 
 ```c
 int a[3] = {10, 20, 30};    // Valid
