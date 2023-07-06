@@ -50,11 +50,9 @@ int main(){
 }
 ```
 
-> We cannot declare the values of the structure in the structure declaration.  
-> We can only declare the structure in the structure declaration.  
-> To declare the values of the structure, we need to create variables of that structure type.
-<br>
-<br>
+> - We cannot declare the values of the structure in the structure declaration.  
+> - We can only declare the structure in the structure declaration.  
+> - To declare the values of the structure, we need to create variables of that structure type.
 
 **Abstraction**: Displaying only essential information and hiding the details.
 
