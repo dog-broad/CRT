@@ -279,3 +279,25 @@ int main(){
 2024
 2025 2025 2025
 ```
+
+### Union Rules
+
+1. We cannot perform initialization within the union declaration.
+2. All variables in a union share the same address.
+
+
+## Enumerations
+
+An enumeration is a user-defined data type that consists of integral constants. To define an enumeration, keyword enum is used.
+
+### Enumeration Declaration
+The basic syntax for declaring an enumeration is:
+
+```c
+enum enumName {
+    constant1,
+    constant2,
+    ...
+    constantN;
+};
+```
