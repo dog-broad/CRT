@@ -58,6 +58,10 @@ int main(){
 
 **Abstraction**: Displaying only essential information and hiding the details.
 
+**Encapsulation**: Putting group of data together and hiding that information by using access modifiers.
+<br>
+<br>
+
 
 Providing values to the structure:
 
@@ -133,3 +137,10 @@ int main(){
     return 0;
 }
 ```
+
+
+### Strucure Rules
+
+1. We cannot perform initialization within the structure declaration.
+2. Each object has its own state and behavior.
+   
