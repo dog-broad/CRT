@@ -31,3 +31,5 @@ int main()
     printStudent(std2);
 };
 ```
+>**Union**: A memory location having multiple variable names. If one variable value changes then the rest of the variable values change too, as they share the same memory location.  
+
