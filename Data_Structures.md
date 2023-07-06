@@ -234,6 +234,7 @@ A union is a user-defined data type that allows storing different data types in 
 
 - A union can have multiple members, but only one member can contain a value at any given time.
 - If the value of one member is changed, then the values of all other members will be changed.
+- All members of a union share the same memory location.
 
 ### Union Declaration
 
@@ -257,7 +258,7 @@ union CSD{
     int year1, year2, year3;
     // int year1 = 2000; will give error
     // Union is also an abstract data type like structure
-}
+}std1;
 
 int main(){
     std1.year1 = 2024;
@@ -269,3 +270,5 @@ int main(){
     // Gives output 2025 2025 2025
     return 0;
 }
+```
+> All variables in CSD share the same address
