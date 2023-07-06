@@ -1,4 +1,4 @@
-# Daat Structures
+# Data Structures
 
 ## Data types
 
