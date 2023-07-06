@@ -75,6 +75,7 @@ struct CSD setStudent(int i, char g, double p){
     o.id = i;
     o.grade = g;
     o.percentage = p;
+    return o;
 };
 
 void printStudent(struct CSD o){
