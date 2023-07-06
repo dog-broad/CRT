@@ -75,7 +75,7 @@ struct CSD setStudent(int i, char g, double p){
     o.id = i;
     o.grade = g;
     o.percentage = p;
-}
+};
 
 void printStudent(struct CSD o){
     printf("ID: %d\n", o.id);
@@ -87,4 +87,7 @@ int main(){
     struct CSD std1, std2; // Creating variables of structure type
     std1 = setStudent(23, 'A', 99.8);
     std2 = setStudent(24, 'B', 88.9);
+    printStudent(std1);
+    printStudent(std2);
+    return 0;
 }
