@@ -144,3 +144,26 @@ int main(){
 1. We cannot perform initialization within the structure declaration.
 2. Each object has its own state and behavior.
    
+```c
+#include <stdio.h>
+
+struct CSD{ // Abstract Structure
+    int id;
+    char grade;
+    double percentage;
+}std1, std2; // Creating variables/Objects of structure type
+
+int main(){
+    std1.id = 90;
+    printf("%d", std2.id);
+}
+```
+> OUTPUT:
+```
+ 0
+```
+
+Object created within structure declaration defaults to 0.  
+Char will be deafulted to space.
+
+- It is preferable to declare the structure outside the main function.
