@@ -206,6 +206,7 @@ int main(){
     puts("Student Details: \n");
     for(int i = 0; i < n; i++){
         printStudent(std[i]);
+        printf("\n");
     }
     return 0;
 }
