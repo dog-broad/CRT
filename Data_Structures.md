@@ -172,15 +172,16 @@ Char will be deafulted to space.
 
 ```c
 #include <stdio.h>
+#include <string.h>
 
-struct CSD{ // Abstract Structure
+struct CSD{
     int id;
-    char grade;  // char grade = 'A'; will give error
+    char grade;
     double percentage;
 };
 
 struct CSD setStudent(int i, char g, double p){
-    struct CSD o;   // Creating an object of structure type
+    struct CSD o;
     o.id = i;
     o.grade = g;
     o.percentage = p;
@@ -202,7 +203,9 @@ int main(){
         printf("Enter %d student's ID, Grade, Percentage: ", i);
         scanf("%d %c %lf", &std[i].id, &std[i].grade, &std[i].percentage);
     }
+    puts("Student Details: \n");
     for(int i = 0; i < n; i++){
         printStudent(std[i]);
     }
+    return 0;
 }
