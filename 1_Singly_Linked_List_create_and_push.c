@@ -3,23 +3,24 @@
 
 struct SLL
 {
-  //Singly Linked List without tail
+    //Singly Linked List without tail
     //write here
-    int val;
+    int data;
     struct SLL *next;
 }*head = NULL;
 void push(int v)
 {
     //Write here!
-    head = (struct SLL *)malloc(sizeof(struct SLL));
-    head->val = v;
-    head->next = NULL;
+    struct SLL *p = (struct SLL *)malloc(sizeof(struct SLL *));
+    p->data = v;
+    p->next = head;
+    head = p;
 }
 void printSLL(struct SLL *p)
 {
     //Write here!
     while (p != NULL) {
-        printf("%d\n", p->val);
+        printf("%d ", p->data);
         p = p->next;
     }
 }
