@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int mani(){
+int main(){
     // Dynamic Array
     int n;
     scanf("%d", &n);
