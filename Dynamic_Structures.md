@@ -72,3 +72,27 @@ Types of Linked List:
 1. **Singly Linked List** ⇒ Each element is linked to the next element. [Contains next Pointer & head & Tail Pointer].
 2. **Doubly Linked List** ⇒ Each element is linked to the next element and the previous element. [Contains next & previous Pointer & head & Tail Pointer].
 3. **Circular Linked List** ⇒ Each element is linked to the next element. The last element is linked to the first element. [Contains Head & Tail].
+
+### Define a node?
+
+A Node is an Abstract Structure when there's 
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct CSD{
+    double per
+};
+
+int main(){
+    struct CSD *p = (double *)malloc(sizeof(double));
+    p->per = 90.5;
+    printf("%lf", (*p).per);
+    // p->per is same as (*p).per
+}
+```
+> **Output:**
+```
+90.5
+```
