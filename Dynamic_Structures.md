@@ -96,3 +96,38 @@ int main(){
 ```
 90.5
 ```
+
+### Singly Linked List
+
+```c
+#include <stdio.h>
+struct CSD{
+    double per;
+    struct CSD *next;
+};
+
+int main(){
+    struct CSD *p1 = (struct CSD *)malloc(sizeof(struct CSD));
+    struct CSD *p2 = (struct CSD *)malloc(sizeof(struct CSD));
+    struct CSD *p3 = (struct CSD *)malloc(sizeof(struct CSD));
+
+    p1->per = 90.5; p1->next = p2;  // 90.5 -> NULL
+    p2->per = 80.5; p2->next = p3;  // 90.5 -> 80.5 -> NULL
+    p3->per = 70.5; p3->next = NULL;// 90.5 -> 80.5 -> 70.5 -> NULL
+    for(; p1!=NULL; p1=p1->next){
+        printf("%lf\n", p1->per);
+    }
+}
+```
+> **Output:**
+```
+90.5
+80.5
+70.5
+```
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include<math.io>
+
+```
