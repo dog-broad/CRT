@@ -2,15 +2,19 @@
 #include <stdlib.h>
 
 int main(){
-    // Dynamic Array
-    int n;
-    scanf("%d", &n);
     int *arr = (int *)malloc(sizeof(int));
-    for(int i = 0; i < n; i++){
-        arr = realloc(arr, sizeof(int) * (i + 2));
-        scanf("%d", &arr[i]);
+    int n = 0;
+    int input;
+    while(1){
+        scanf("%d", &input);
+        if(input == -1){
+            break;
+        }
+        arr[n] = input;
+        n++;
+        arr = realloc(arr, sizeof(int) * (n + 2));
     }
-    for(int i = 0; i < n; i++){
-        printf("%d ", arr[i]);
+    while(n--){
+        printf("%d ", arr[n]);
     }
 }
