@@ -1,10 +1,15 @@
 #include <stdio.h>
-
-enum week{
-    Monday = 90, Tuesday
-};
+#include <stdlib.h>
 
 int main(){
-    printf("%d %d", Monday, Tuesday);
-    return 0;
+    // Dynamic Array
+    int n;
+    scanf("%d", &n);
+    int *arr = (int *)malloc(n * sizeof(int));
+    for(int i = 0; i < n; i++){
+        scanf("%d", &arr[i]);
+    }
+    for(int i = 0; i < n; i++){
+        printf("%d ", arr[i]);
+    }
 }
