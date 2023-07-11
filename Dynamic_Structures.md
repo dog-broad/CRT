@@ -129,5 +129,12 @@ int main(){
 #include <stdio.h>
 #include <stdlib.h>
 #include<math.io>
-
+struct LL{
+    int data;
+    struct LL *next;
+}*head = NULL;
+int main()
+{
+    
+}
 ```
