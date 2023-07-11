@@ -57,3 +57,18 @@ int main(){
         printf("%d ", arr[i]);
     }
 }
+```
+
+## List
+
+List is an ADT that stores non-homogeneous elements in a Dynamic Structure.
+
+## Linked List
+
+Linked List is an ADT that stores elements in a Dynamic Structure. Each element MUST be linked to the next element in the list. The last element is linked to a NULL pointer.
+
+Types of Linked List:
+
+1. **Singly Linked List** ⇒ Each element is linked to the next element. [Contains next Pointer & head & Tail Pointer].
+2. **Doubly Linked List** ⇒ Each element is linked to the next element and the previous element. [Contains next & previous Pointer & head & Tail Pointer].
+3. **Circular Linked List** ⇒ Each element is linked to the next element. The last element is linked to the first element. [Contains Head & Tail].
