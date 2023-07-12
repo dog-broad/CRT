@@ -1,6 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/*
+ * This stores the total number of books in each shelf.
+ */
+int* total_number_of_books;
+
+/*
+ * This stores the total number of pages in each book of each shelf.
+ * The rows represent the shelves and the columns represent the books.
+ */
+int** total_number_of_pages;
+
 int main()
 {
     int total_number_of_shelves;
@@ -8,14 +19,22 @@ int main()
     
     int total_number_of_queries;
     scanf("%d", &total_number_of_queries);
-
-    int **book = (int **)malloc(total_number_of_shelves * sizeof(int *));
+    
+    total_number_of_books = (int *)malloc(total_number_of_shelves * sizeof(int));
 
     // set all shelves to 0
     for (int i = 0; i < total_number_of_shelves; i++) {
-        book[i] = (int *)malloc(1100 * sizeof(int));
+        total_number_of_books[i] = 0;
+    }
+
+    // pages
+    total_number_of_pages = (int **)malloc(total_number_of_shelves * sizeof(int *));
+
+    // set all shelves to 0
+    for (int i = 0; i < total_number_of_shelves; i++) {
+        total_number_of_pages[i] = (int *)malloc(1100 * sizeof(int));
         for (int j = 0; j < 1100; j++) {
-            book[i][j] = 0;
+            total_number_of_pages[i][j] = 0;
         }
     }
 
@@ -29,29 +48,40 @@ int main()
              */
             int x, y;
             scanf("%d %d", &x, &y);
-            
+
             // add book y to shelf x
             int i = 0;
-            while (book[x][i] != 0) {
+            while (total_number_of_pages[x][i] != 0) {
                 i++;
             }
-            book[x][i] = y;
-        } else if (type_of_query == 2) {
+            total_number_of_pages[x][i] = y;
+            total_number_of_books[x]++;
+
+
+            } else if (type_of_query == 2) {
             int x, y;
             scanf("%d %d", &x, &y);
-            
-            // print number of pages
-            printf("%d\n", book[x][y]);
+            printf("%d\n", *(*(total_number_of_pages + x) + y));
         } else {
             int x;
             scanf("%d", &x);
-            
-            // print number of books on shelf x
-            int i = 0;
-            while (book[x][i] != 0) {
-                i++;
-            }
-            printf("%d\n", i);
+            printf("%d\n", *(total_number_of_books + x));
         }
     }
+
+    if (total_number_of_books) {
+        free(total_number_of_books);
+    }
+    
+    for (int i = 0; i < total_number_of_shelves; i++) {
+        if (*(total_number_of_pages + i)) {
+            free(*(total_number_of_pages + i));
+        }
+    }
+    
+    if (total_number_of_pages) {
+        free(total_number_of_pages);
+    }
+    
+    return 0;
 }
