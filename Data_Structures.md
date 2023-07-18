@@ -314,9 +314,9 @@ enum week{
     Saturday,
     Sunday
 };
-// week => enumeration
-// monday, tuesday => enumerators
-// monday = 0, tuesday = 1 => values
+// week ⇒ enumeration
+// monday, tuesday ⇒ enumerators
+// monday = 0, tuesday = 1 ⇒ values
 int main(){
     enum week today;
     today = Wednesday;
@@ -391,9 +391,9 @@ insertAfter(k1, k2) ⇒ Insert k2 after k1
 ## Deletion Algorithm
 
 1. If list is empty, Do nothing.
-2. If head is N => head's next is new head.
-3. If N is both head and tail => head and tail is NULL.
+2. If head is N ⇒ head's next is new head.
+3. If N is both head and tail ⇒ head and tail is NULL.
 4. Search for N's previous node (p)
-    4a. If N does not exist => Do nothing.
-    4b. If p next is Tail => make p as new tail.
+    4a. If N does not exist ⇒ Do nothing.
+    4b. If p next is Tail ⇒ make p as new tail.
     4c. If N is present, p's next is p's next's next.
