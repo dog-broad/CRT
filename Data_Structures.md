@@ -362,3 +362,38 @@ The value next to the previous value is automatically incremented by 1.
 3. If we don't assign values to enum names, then they are automatically assigned values starting from 0.
 4. An enumerator's value is previous enumerator's value + 1.
 5. Enumerators can be initialized to values of any integer type but cannot be changed outside the enum declaration. Enumerators are CONSTANTS.
+
+
+## Insertion Before Algorithm
+
+insertBefore(k1, k2) ⇒ Insert k2 before k1
+
+1. If list is empty, Do nothing
+2. If k1 is the head, push(k2)
+3. Search for Node before k1(p)
+    3a. If k1 does not exist ⇒ Do nothing
+    3b1. Create a node, insert a value k2
+    3b2. n next is k1(p→next)
+    3b3. p next is n
+
+## Insertion After Algorithm
+
+insertAfter(k1, k2) ⇒ Insert k2 after k1
+
+1. If list is empty, Do nothing
+2. If k1 is the tail, append(k2)
+3. Search for Node k1(p)
+    3a. If k1 does not exist ⇒ Do nothing
+    3b1. Create a node, insert a value k2
+    3b2. n next is k1(p→next)
+    3b3. p next is n
+
+## Deletion Algorithm
+
+1. If list is empty, Do nothing.
+2. If head is N => head's next is new head.
+3. If N is both head and tail => head and tail is NULL.
+4. Search for N's previous node (p)
+    4a. If N does not exist => Do nothing.
+    4b. If p next is Tail => make p as new tail.
+    4c. If N is present, p's next is p's next's next.

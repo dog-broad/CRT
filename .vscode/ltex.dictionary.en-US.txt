@@ -11,3 +11,5 @@ NumberOfArgs
 DataType
 Deallocates
 k-ary
+insertBefore
+insertAfter
