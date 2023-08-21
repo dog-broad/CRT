@@ -15,7 +15,7 @@ void pop(char* stack){
 char* isBalanced(char* s) {
     int n = strlen(s);
     // using stack to check if brackets are balanced
-    char stack[100000];
+    char stack[10000];
     for(int i = 0; i < n/2; i++){
         push(stack, s[i]);
     }
