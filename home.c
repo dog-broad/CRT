@@ -29,8 +29,14 @@ char* isBalanced(char* s) {
         else if(stack[top] == '{' && s[i] == '}'){
             pop(stack);
         }
-        else{
-            return "NO";
+        else if(stack[top] == ')' && s[i] == '('){
+            pop(stack);
+        }
+        else if(stack[top] == ']' && s[i] == '['){
+            pop(stack);
+        }
+        else if(stack[top] == '}' && s[i] == '{'){
+            pop(stack);
         }
     }
 
