@@ -15,27 +15,30 @@ void pop(char* stack){
 char* isBalanced(char* s) {
     int n = strlen(s);
     char stack[10000];
-    for (int i = 0; i < n; i++) {
-        if (s[i] == '(' || s[i] == '{' || s[i] == '[') {
-            push(stack, s[i]);
-        } else if (s[i] == ')' || s[i] == '}' || s[i] == ']') {
-            if (top < 0) {
-                return "NO";
-            }
-            char topChar = stack[top];
-            if ((topChar == '(' && s[i] == ')') ||
-                (topChar == '{' && s[i] == '}') ||
-                (topChar == '[' && s[i] == ']')) {
-                pop(stack);
-            } else {
-                return "NO";
-            }
+    for(int i=0; i<n/2; i++){
+        push(stack, s[i]);
+    }
+
+    for(int i=n/2; i<n; i++){
+        if(stack[top] == '(' && s[i] == ')'){
+            pop(stack);
+        }
+        else if(stack[top] == '[' && s[i] == ']'){
+            pop(stack);
+        }
+        else if(stack[top] == '{' && s[i] == '}'){
+            pop(stack);
+        }
+        else{
+            return "NO";
         }
     }
-    if (top >= 0) {
-        return "NO";
-    } else {
+
+    if(top == -1){
         return "YES";
+    }
+    else{
+        return "NO";
     }
 }
 
