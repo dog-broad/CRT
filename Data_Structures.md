@@ -481,8 +481,40 @@ int main(){
         scanf("%d", &v);
         push(v);
     }
-    
+
     while(!isEmpty()){
         printf("%d ", pop());
     }
 }
+
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+// Push(v), pop(), isEmpty()
+// Array Implementation of a stack
+#define CAPACITY 5000
+int top = -1, size = 0;
+int stack[CAPACITY];
+void push(int v){
+    if(size == CAPACITY) { printf("OverFlow!"); return; }
+    stack[size] = v; // store value in top index
+    size++; top++;
+}
+int pop(){ 
+    if(size == 0)  { printf("UnderFlow"); return -1; }
+    int t = stack[top];
+    stack[top] = 0; // make current top 0
+    top--; size--; // make previous index of top as new top
+    return t; // return the current top element
+}
+int isEmpty(){
+    if(size == 0) return 1; // if stack is empty, return false
+    return 0; // else return true;
+}
+int main(){ 
+    int n; scanf("%d", &n); 
+    for(int i=0, t;i<n;i++) { scanf("%d",&t); push(t); }  
+    while(!isEmpty()) printf("%d ", pop());
+}
+```
