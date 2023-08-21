@@ -397,3 +397,44 @@ insertAfter(k1, k2) ⇒ Insert k2 after k1
     4a. If N does not exist ⇒ Do nothing.
     4b. If p next is Tail ⇒ make p as new tail.
     4c. If N is present, p's next is p's next's next.
+
+
+# Stack
+
+Stack is an ADT(abstract data type) that stores items in the order of Last-In/First-Out (LIFO) or First-In/Last-Out (FILO) manner.
+
+## Stack Terminologies
+
+Top ⇒ The topmost element of the stack.
+Size ⇒ The number of elements in the stack.
+Capacity ⇒ The maximum number of elements that can be stored in the stack.
+Overflow ⇒ If we try to push an element into a full stack, then it is called an overflow condition.
+Underflow ⇒ If we try to pop an element from an empty stack, then it is called an underflow condition.
+
+## Stack Operations
+
+Main operations:
+    1. Push ⇒ Insert an item at the top of the stack.   || O(1)
+    2. Pop ⇒ Remove an item from the top of the stack.  || O(1)
+
+Auxiliary operations:
+    1. isEmpty ⇒ Check if the stack is empty.   || O(1)
+    2. isFull ⇒ Check if the stack is full.     || O(1)
+    3. front ⇒ Get the value of the top element without removing it.    || O(1)
+    4. getNth ⇒ Get the value of the nth element from the top.  || O(n)
+
+## Stack Applications
+
+1. Evaluation of an equation.
+2. Reversing a string.
+3. Undo/Redo.
+4. Backtracking.
+5. Function calls.
+6. Parenthesis matching.
+7. Infix to Postfix conversion.
+
+## Stack Implementation
+
+1. Array Implementation
+2. Linked List Implementation
+
