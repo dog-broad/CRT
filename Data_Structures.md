@@ -481,6 +481,7 @@ int main(){
         scanf("%d", &v);
         push(v);
     }
+    
     while(!isEmpty()){
         printf("%d ", pop());
     }
