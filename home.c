@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+# include <stdio.h>
 
 int top = -1;
 
@@ -36,12 +34,8 @@ char* isBalanced(char* s) {
 }
 
 int main(){
-    int t;
-    scanf("%d", &t);
-    while(t--){
-        char s[100000];
-        scanf("%s", s);
-        printf("%s\n", isBalanced(s));
-    }
+    char s[10000];
+    scanf("%s", s);
+    printf("%s", isBalanced(s));
     return 0;
 }
