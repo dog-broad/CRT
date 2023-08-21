@@ -438,3 +438,50 @@ Auxiliary operations:
 1. Array Implementation
 2. Linked List Implementation
 
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Stack{
+    int data;
+    struct Stack *next;
+} *top = NULL;
+
+void push(int v){
+    struct Stack *n = (struct Stack *)malloc(sizeof(struct Stack)); // 1. Create a node
+    n->data = v;    // 2. Insert a value
+    n->next = top;  // 3. n next is top
+    top = n;        // 4. top is n
+}
+
+int pop(){
+    struct Stack *t = top;  // 1. Create a temp node
+    top = top->next;        // 2. top's next is new top
+    int d = t->data;        // 3. d is t's data
+    free(t);                // 4. Delete t
+    return d;
+}
+
+int isEmpty(){
+    if(top == NULL)
+        return 1;
+    else
+        return 0;
+}
+
+int main(){
+    int n;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter the elements: ");
+    for(int i = 0; i < n; i++){
+        int v;
+        scanf("%d", &v);
+        push(v);
+    }
+    while(!isEmpty()){
+        printf("%d ", pop());
+    }
+}
