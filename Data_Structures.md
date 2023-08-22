@@ -518,3 +518,10 @@ int main(){
     while(!isEmpty()) printf("%d ", pop());
 }
 ```
+
+
+
+# Queue
+
+Queue is an ADT(abstract data type) that stores items in the order of First-In/First-Out (FIFO) or Last-In/Last-Out (LILO) manner.
+
