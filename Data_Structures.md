@@ -525,3 +525,9 @@ int main(){
 
 Queue is an ADT(abstract data type) that stores items in the order of First-In/First-Out (FIFO) or Last-In/Last-Out (LILO) manner.
 
+## Queue Terminologies
+
+Front ⇒ The frontmost element of the queue. It is the element that is about to be served/deleted.
+Rear ⇒ The rearmost element of the queue. It is the element that was inserted at last.
+QueueOverflow ⇒ If we try to insert an element into a full queue, then it is called a queue overflow condition.
+QueueUnderflow ⇒ If we try to delete an element from an empty queue, then it is called a queue underflow condition.

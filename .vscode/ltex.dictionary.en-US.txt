@@ -13,3 +13,6 @@ Deallocates
 k-ary
 insertBefore
 insertAfter
+frontmost
+QueueOverflow
+QueueUnderflow
