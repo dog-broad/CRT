@@ -531,3 +531,14 @@ Front ⇒ The frontmost element of the queue. It is the element that is about to
 Rear ⇒ The rearmost element of the queue. It is the element that was inserted at last.
 QueueOverflow ⇒ If we try to insert an element into a full queue, then it is called a queue overflow condition.
 QueueUnderflow ⇒ If we try to delete an element from an empty queue, then it is called a queue underflow condition.
+
+## Queue Operations
+
+enqueue(val) ⇒ Insert an item at the rear of the queue.
+dequeue() ⇒ Removes and returns an item from the front of the queue.
+
+## Auxiliary Operations
+
+isEmpty() ⇒ Check if the queue is empty. Returns true if empty, else false.
+front() ⇒ Get the value of the front element without removing it.
+rear() ⇒ Get the value of the rear element without removing it.
