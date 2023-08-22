@@ -619,3 +619,122 @@ int main(){
     queueReversePrint();
 }
 ```
+
+Non-recursive print:
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Queue{
+    int data;
+    struct Queue *next;
+} *front = NULL, *rear = NULL;
+
+void enQueue(int val){
+    struct Queue *n = (struct Queue *)malloc(sizeof(struct Queue));
+    n->data = val;
+    if(rear != NULL){
+        rear->next = n;
+    }
+    if(rear == NULL){
+        front = n;
+    }
+    rear = n;
+}
+
+int deQueue(){
+    if (front == NULL){
+        printf("Queue Underflow!");
+        return -1;
+    }
+    struct Queue *t = front;
+    front = front->next;
+    int d = t->data;
+    free(t);
+    return d;
+}
+
+int isEmpty(){
+    if(front == NULL)
+        return 1;
+    else
+        return 0;
+}
+
+int frontVal(){
+    if(front != NULL)
+        return front->data;
+    else
+        return -1;
+}
+
+in rearVal(){
+    if(rear != NULL)
+        return rear->data;
+    else
+        return -1;
+}
+
+int main(){
+    int n;
+    scanf("%d", &n);
+
+    while(n--){
+        int v;
+        scanf("%d", &v);
+        enQueue(v);
+    }
+
+    while(!isEmpty()){
+        printf("%d ", deQueue());
+    }
+}
+```
+
+
+Queue Implementation using Circular Array:
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+// hackerrank.com/cmrit25-5-ds
+// cmrgi-tp => 5432112345
+// First Program
+// Implementation of Queue using CircularArrays
+#include <stdio.h>
+int size = 0, CAPACITY = 0; // Initialize size and CAPACITY
+int front = 0, rear = 0; // Initialize front and rear
+int *arr; // Initialize the array
+
+void enQueue(int val){ // Insert a new element into the queue
+    if(size == CAPACITY) return; // Overflow
+    arr[rear] = val; // Insert the new element
+    rear = (rear + 1) % CAPACITY; // Rear increases by 1
+    size++; // Size increases by 1
+}
+
+void deQueue(){ // Delete the front element
+    if(size == 0) { return; } // Underflow
+    arr[front] = 0; // Delete the front element
+    front = (front+1) % CAPACITY; // Front increases by 1
+    size--; // Size decreases by 1
+}
+
+void queuePrint(){ // Print the queue
+    for(int i=size-1;i>=0;i--) printf("%d ", arr[i]); // Print the elements in the queue
+}
+
+int main( ){ // Main function
+    int n; // The number of elements in the queue
+    scanf("%d", &n); // Read the number of elements
+    CAPACITY = n; // Set the capacity
+    arr = malloc(sizeof(int) * n); // Allocate memory for the array
+    for(int i=0;i<n;i++) { // Read the elements in the queue
+        int t; // A temporary variable
+        scanf("%d", &t); // Read an element
+        enQueue(t); // Insert the element into the queue
+    }
+    queuePrint(); // Print the queue
+}
+```
