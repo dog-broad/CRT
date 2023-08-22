@@ -576,3 +576,46 @@ int deQueue(){
     free(t);
     return d;
 }
+
+int isEmpty(){
+    if(front == NULL)
+        return 1;
+    else
+        return 0;
+}
+
+int frontVal(){
+    if(front != NULL)
+        return front->data;
+    else
+        return -1;
+}
+
+in rearVal(){
+    if(rear != NULL)
+        return rear->data;
+    else
+        return -1;
+}
+
+void queueReversePrint(){
+    int t = deQueue();
+    if (front != NULL){
+        queueReversePrint();
+    }
+    printf("%d ", t);
+}
+
+int main(){
+    int n;
+    scanf("%d", &n);
+
+    while(n--){
+        int v;
+        scanf("%d", &v);
+        enQueue(v);
+    }
+
+    queueReversePrint();
+}
+```
