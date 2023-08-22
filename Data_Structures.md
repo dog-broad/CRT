@@ -542,3 +542,37 @@ dequeue() ⇒ Removes and returns an item from the front of the queue.
 isEmpty() ⇒ Check if the queue is empty. Returns true if empty, else false.
 front() ⇒ Get the value of the front element without removing it.
 rear() ⇒ Get the value of the rear element without removing it.
+
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Queue{
+    int data;
+    struct Queue *next;
+} *front = NULL, *rear = NULL;
+
+void enQueue(int val){
+    struct Queue *n = (struct Queue *)malloc(sizeof(struct Queue));
+    n->data = val;
+    if(rear != NULL){
+        rear->next = n;
+    }
+    if(rear == NULL){
+        front = n;
+    }
+    rear = n;
+}
+
+int deQueue(){
+    if (front == NULL){
+        printf("Queue Underflow!");
+        return -1;
+    }
+    struct Queue *t = front;
+    front = front->next;
+    int d = t->data;
+    free(t);
+    return d;
+}
