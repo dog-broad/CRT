@@ -829,6 +829,17 @@ But if trees are used, the searching time would be $O(log_2 n)$.
 
 ## Tree Traversal
 
+Consider the tree
+
+```mermaid
+graph TD
+    A[23] --> B[21]
+    A --> C[27]
+    B --> D[20]
+    C --> E[26]
+    C --> F[35]
+```
+
 1. Inorder Traversal
 
 ```c
@@ -840,3 +851,4 @@ print(node);
 search(right);
 
 ```
+
