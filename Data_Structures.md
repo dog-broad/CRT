@@ -738,3 +738,7 @@ int main( ){ // Main function
     queuePrint(); // Print the queue
 }
 ```
+
+# Tree
+
+It is an ADT(Abstract Data Type) that stores data in a hierarchical manner. It is a non-linear data structure.
