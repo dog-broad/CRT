@@ -816,7 +816,7 @@ But if trees are used, the searching time would be $O(log_2 n)$.
 > **NOTE**: The time taken to search in a tree is O(log n) only if the tree is a **Binary Search Tree**. Log base 2 of n.
 
 
-
+**Binary Tree**: An ADT tree that can only contain 0, 1 or 2 children.
 
 
 **Comparison table:**
