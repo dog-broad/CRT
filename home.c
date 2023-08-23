@@ -35,6 +35,7 @@ void insert(int val){ // INSERTS the val into the tree
         if(val <= temp->data){
             printf("Cuurent temp data: %d\n", temp->data);
             if(temp->left == NULL){
+                printf("Here, left is empty, we insert here");
                 temp->left = createNode(val);
             }
             else{
