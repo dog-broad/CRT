@@ -804,3 +804,8 @@ int main(){
     root->right->middle = createNode(1);
     preorder(root);
 }
+```
+**OUTPUT**:
+```
+45 12 6 7 9 90 2 1
+```
