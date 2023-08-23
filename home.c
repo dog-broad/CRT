@@ -1,53 +1,40 @@
+//DO NOT EDIT ANY  OF THE CODE!
+// Binary Tree Implementation
 #include <stdio.h>
 #include <stdlib.h>
-
-struct Tree{
+struct BinaryTree{ // Properties of Node
+    //WRITE CODE HERE
     int data;
-    struct Tree *left;
-    struct Tree *right;
-    struct Tree *middle;
-} *root = NULL;
-
-struct Tree *createNode(int val){
-    // 1. Create a node
-    struct Tree *n = (struct Tree *)malloc(sizeof(struct Tree));
-    // 2. Insert a value
-    n->data = val;
-    // 3. Initialize left, right and middle as NULL
-    n->left = NULL;
-    n->right = NULL;
-    n->middle = NULL;
-    // 4. Return the node
+    struct BinaryTree *left;
+    struct BinaryTree *right;
+} *root;
+struct BinaryTree * createNode(int v){// Create a New Node
+    //WRITE CODE HERE
+    struct BinaryTree *n = (struct BinaryTree*)malloc(sizeof(struct BinaryTree));
+    n -> data = v;
+    n -> left = NULL;
+    n -> right = NULL;
     return n;
-};
-
-void preorder(struct Tree *t){
-    if(t==NULL) 
+}
+void inorder(struct BinaryTree * r){ //Ascending Order 
+    //WRITE CODE HERE
+    if(r == NULL) 
         return;
-    printf("%d ", t->data);
-    preorder(t->left);
-    preorder(t->middle);
-    preorder(t->right);
+    inorder(r -> left);
+    printf("%d ", r -> data);
+    inorder(r -> right);
 }
 
-int main(){
-    /*
-
-              45
-          /   |   \
-        12    9    90
-       / \        / |
-      6  7       2  1
-
-    */
-
-    root = createNode(45);
-    root->left = createNode(12);
-    root->middle = createNode(9);
-    root->right = createNode(90);
-    root->left->left = createNode(6);
-    root->left->right = createNode(7);
-    root->right->left = createNode(2);
-    root->right->middle = createNode(1);
-    preorder(root);
+int main( ){ 
+        int arr[9]; for(int i=0;i<9;i++) scanf("%d", &arr[i]);  
+        root = createNode(arr[0]);
+        root->left = createNode(arr[1]);
+        root->right = createNode(arr[2]);
+        root->left->left = createNode(arr[3]);
+        root->left->right = createNode(arr[4]);
+        root->right->right = createNode(arr[5]);
+        root->left->left->left = createNode(arr[6]);
+        root->left->left->right = createNode(arr[7]);
+        root->right->right->left = createNode(arr[8]);
+        inorder(root); 
 }
