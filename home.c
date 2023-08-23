@@ -30,26 +30,18 @@ void insert(int val){ // INSERTS the val into the tree
         root = createNode(val);
         return;
     }
-    for(struct BinaryTree *temp = root; temp!= NULL;){
-        if(val < temp->data){
-            if(temp->left == NULL){
-                temp->left = createNode(val);
-                return;
-            }
-            else{
-                temp = temp->left;
-            }
-        }
-        else{
-            if(temp->right == NULL){
-                temp->right = createNode(val);
-                return;
-            }
-            else{
-                temp = temp->right;
-            }
-        }
+    struct BinaryTree *temp = root, *parent = NULL;
+    while(temp != NULL){
+        parent = temp;
+        if(val < temp->data)
+            temp = temp->left;
+        else
+            temp = temp->right;
     }
+    if(val < parent->data)
+        parent->left = createNode(val);
+    else
+        parent->right = createNode(val);
 }
 int main( ){ 
         int n; scanf("%d", &n); for(int i=0;i<n;i++) { int t; scanf("%d", &t); insert(t); }   
