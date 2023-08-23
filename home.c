@@ -31,7 +31,7 @@ void insert(int val){ // INSERTS the val into the tree
         return;
     }
     for(struct BinaryTree *temp = root; temp!= NULL;){
-        if(val <= temp->data){
+        if(val < temp->data){
             if(temp->left == NULL){
                 temp->left = createNode(val);
                 return;
