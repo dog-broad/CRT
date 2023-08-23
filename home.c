@@ -10,7 +10,7 @@ struct BinaryTree{ // Properties of Node
 } *root;
 struct BinaryTree * createNode(int v){// Create a New Node
     //WRITE CODE HERE
-    struct BinaryTree *n = malloc(sizeof(struct BinaryTree));
+    struct BinaryTree *n = (struct BinaryTree *)malloc(sizeof(struct BinaryTree));
     n->data = v;
     n->left = NULL;
     n->right = NULL;
@@ -31,7 +31,9 @@ void insert(int val){ // INSERTS the val into the tree
         return;
     }
     for(struct BinaryTree *temp = root; temp!= NULL;){
+        printf("value: %d\n", val);
         if(val <= temp->data){
+            printf("Cuurent temp data: %d\n", temp->data);
             if(temp->left == NULL){
                 temp->left = createNode(val);
             }
