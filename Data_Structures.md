@@ -774,13 +774,13 @@ struct Tree *createNode(int val){
     return n;
 };
 
-void preoerder(strcut Tree *t){
+void preorder(struct Tree *t){
     if(t==NULL) 
-        break;
+        return;
     printf("%d ", t->data);
     preorder(t->left);
-    preorder(t->right);
     preorder(t->middle);
+    preorder(t->right);
 }
 
 int main(){
@@ -794,12 +794,13 @@ int main(){
 
     */
 
-    root = CreateNode(45);
-    root->left = CreateNode(12);
-    root->middle = CreateNode(9);
-    root->right = CreateNode(90);
-    root->left->left = CreateNode(6);
-    root->left->right = CreateNode(7);
-    root->right->left = CreateNode(2);
-    root->right->middle = CreateNode(1);
+    root = createNode(45);
+    root->left = createNode(12);
+    root->middle = createNode(9);
+    root->right = createNode(90);
+    root->left->left = createNode(6);
+    root->left->right = createNode(7);
+    root->right->left = createNode(2);
+    root->right->middle = createNode(1);
+    preorder(root);
 }

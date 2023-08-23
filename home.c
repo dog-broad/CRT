@@ -1,47 +1,53 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-int top = -1;
+struct Tree{
+    int data;
+    struct Tree *left;
+    struct Tree *right;
+    struct Tree *middle;
+} *root = NULL;
 
-void push(char* stack, char c){
-    stack[++top] = c;
-}
+struct Tree *createNode(int val){
+    // 1. Create a node
+    struct Tree *n = (struct Tree *)malloc(sizeof(struct Tree));
+    // 2. Insert a value
+    n->data = val;
+    // 3. Initialize left, right and middle as NULL
+    n->left = NULL;
+    n->right = NULL;
+    n->middle = NULL;
+    // 4. Return the node
+    return n;
+};
 
-void pop(char* stack){
-    top--;
-}
-
-char* isBalanced(char* s) {
-    int n = strlen(s);
-    char stack[10000];
-    for(int i=0; i<n/2; i++){
-        push(stack, s[i]);
-    }
-
-    for(int i=n/2; i<n; i++){
-        if(stack[top] == '(' && s[i] == ')'){
-            pop(stack);
-        }
-        else if(stack[top] == '[' && s[i] == ']'){
-            pop(stack);
-        }
-        else if(stack[top] == '{' && s[i] == '}'){
-            pop(stack);
-        }
-    }
-
-    if(top == -1){
-        return "YES";
-    }
-    else{
-        return "NO";
-    }
+void preorder(struct Tree *t){
+    if(t==NULL) 
+        return;
+    printf("%d ", t->data);
+    preorder(t->left);
+    preorder(t->middle);
+    preorder(t->right);
 }
 
 int main(){
-    char s[10000];
-    scanf("%9999s", s);
-    printf("%s", isBalanced(s));
-    return 0;
+    /*
+
+              45
+          /   |   \
+        12   9     90
+       / \        / |
+      6  7       2  1
+
+    */
+
+    root = createNode(45);
+    root->left = createNode(12);
+    root->middle = createNode(9);
+    root->right = createNode(90);
+    root->left->left = createNode(6);
+    root->left->right = createNode(7);
+    root->right->left = createNode(2);
+    root->right->middle = createNode(1);
+    preorder(root);
 }
