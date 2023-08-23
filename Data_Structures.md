@@ -810,10 +810,10 @@ int main(){
 45 12 6 7 9 90 2 1
 ```
 
-If arrays were to be used, the searching time would be O(n).
+If arrays were to be used, the searching time would be O(n).  
 But if trees are used, the searching time would be O(log n). 
 
-> **NOTE**: The time taken to search in a tree is O(log n) only if the tree is a **Binary Search Tree**.
+> **NOTE**: The time taken to search in a tree is O(log n) only if the tree is a **Binary Search Tree**. Log base 2 of n.
 
 **Comparison table:**
 
