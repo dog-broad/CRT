@@ -24,35 +24,18 @@ void inorder(struct BinaryTree * r){ //Ascending Order
     printf("%d ", r->data);
     inorder(r->right);
 }
+struct BinaryTree *insertNode(struct BinaryTree *r, int val){
+    if(r == NULL)
+        return createNode(val);
+    if(val < r->data)
+        r->left = insertNode(r->left, val);
+    else if(val > r->data)
+        r->right = insertNode(r->right, val);
+    return r;
+}
 void insert(int val){ // INSERTS the val into the tree
    // WRITE CODE HERE
-    if(root == NULL){
-        root = createNode(val);
-        return;
-    }
-    for(struct BinaryTree *temp = root; temp!= NULL;){
-        printf("value: %d\n", val);
-        if(val <= temp->data){
-            printf("Cuurent temp data: %d\n", temp->data);
-            if(temp->left == NULL){
-                printf("Here, left is empty, we insert here\n");
-                temp->left = createNode(val);
-                break;
-            }
-            else{
-                temp = temp->left;
-            }
-        }
-        else{
-            if(temp->right == NULL){
-                temp->right = createNode(val);
-                break;
-            }
-            else{
-                temp = temp->right;
-            }
-        }
-    }
+   root = insertNode(root, val);
 }
 int main( ){ 
         int n; scanf("%d", &n); for(int i=0;i<n;i++) { int t; scanf("%d", &t); insert(t); }   
