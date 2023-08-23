@@ -397,3 +397,344 @@ insertAfter(k1, k2) ⇒ Insert k2 after k1
     4a. If N does not exist ⇒ Do nothing.  
     4b. If p next is Tail ⇒ make p as new tail.  
     4c. If N is present, p's next is p's next's next.
+
+
+# Stack
+
+Stack is an ADT(abstract data type) that stores items in the order of Last-In/First-Out (LIFO) or First-In/Last-Out (FILO) manner.
+
+## Stack Terminologies
+
+Top ⇒ The topmost element of the stack.
+Size ⇒ The number of elements in the stack.
+Capacity ⇒ The maximum number of elements that can be stored in the stack.
+Overflow ⇒ If we try to push an element into a full stack, then it is called an overflow condition.
+Underflow ⇒ If we try to pop an element from an empty stack, then it is called an underflow condition.
+
+## Stack Operations
+
+Main operations:
+    1. Push ⇒ Insert an item at the top of the stack.   || O(1)
+    2. Pop ⇒ Remove an item from the top of the stack.  || O(1)
+
+Auxiliary operations:
+    1. isEmpty ⇒ Check if the stack is empty.   || O(1)
+    2. isFull ⇒ Check if the stack is full.     || O(1)
+    3. front ⇒ Get the value of the top element without removing it.    || O(1)
+    4. getNth ⇒ Get the value of the nth element from the top.  || O(n)
+
+## Stack Applications
+
+1. Evaluation of an equation.
+2. Reversing a string.
+3. Undo/Redo.
+4. Backtracking.
+5. Function calls.
+6. Parenthesis matching.
+7. Infix to Postfix conversion.
+
+## Stack Implementation
+
+1. Array Implementation
+2. Linked List Implementation
+
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Stack{
+    int data;
+    struct Stack *next;
+} *top = NULL;
+
+void push(int v){
+    struct Stack *n = (struct Stack *)malloc(sizeof(struct Stack)); // 1. Create a node
+    n->data = v;    // 2. Insert a value
+    n->next = top;  // 3. n next is top
+    top = n;        // 4. top is n
+}
+
+int pop(){
+    struct Stack *t = top;  // 1. Create a temp node
+    top = top->next;        // 2. top's next is new top
+    int d = t->data;        // 3. d is t's data
+    free(t);                // 4. Delete t
+    return d;
+}
+
+int isEmpty(){
+    if(top == NULL)
+        return 1;
+    else
+        return 0;
+}
+
+int main(){
+    int n;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter the elements: ");
+    for(int i = 0; i < n; i++){
+        int v;
+        scanf("%d", &v);
+        push(v);
+    }
+
+    while(!isEmpty()){
+        printf("%d ", pop());
+    }
+}
+
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+// Push(v), pop(), isEmpty()
+// Array Implementation of a stack
+#define CAPACITY 5000
+int top = -1, size = 0;
+int stack[CAPACITY];
+void push(int v){
+    if(size == CAPACITY) { printf("OverFlow!"); return; }
+    stack[size] = v; // store value in top index
+    size++; top++;
+}
+int pop(){ 
+    if(size == 0)  { printf("UnderFlow"); return -1; }
+    int t = stack[top];
+    stack[top] = 0; // make current top 0
+    top--; size--; // make previous index of top as new top
+    return t; // return the current top element
+}
+int isEmpty(){
+    if(size == 0) return 1; // if stack is empty, return false
+    return 0; // else return true;
+}
+int main(){ 
+    int n; scanf("%d", &n); 
+    for(int i=0, t;i<n;i++) { scanf("%d",&t); push(t); }  
+    while(!isEmpty()) printf("%d ", pop());
+}
+```
+
+
+
+# Queue
+
+Queue is an ADT(abstract data type) that stores items in the order of First-In/First-Out (FIFO) or Last-In/Last-Out (LILO) manner.
+
+## Queue Terminologies
+
+Front ⇒ The frontmost element of the queue. It is the element that is about to be served/deleted.
+Rear ⇒ The rearmost element of the queue. It is the element that was inserted at last.
+QueueOverflow ⇒ If we try to insert an element into a full queue, then it is called a queue overflow condition.
+QueueUnderflow ⇒ If we try to delete an element from an empty queue, then it is called a queue underflow condition.
+
+## Queue Operations
+
+enqueue(val) ⇒ Insert an item at the rear of the queue.
+dequeue() ⇒ Removes and returns an item from the front of the queue.
+
+## Auxiliary Operations
+
+isEmpty() ⇒ Check if the queue is empty. Returns true if empty, else false.
+front() ⇒ Get the value of the front element without removing it.
+rear() ⇒ Get the value of the rear element without removing it.
+
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Queue{
+    int data;
+    struct Queue *next;
+} *front = NULL, *rear = NULL;
+
+void enQueue(int val){
+    struct Queue *n = (struct Queue *)malloc(sizeof(struct Queue));
+    n->data = val;
+    if(rear != NULL){
+        rear->next = n;
+    }
+    if(rear == NULL){
+        front = n;
+    }
+    rear = n;
+}
+
+int deQueue(){
+    if (front == NULL){
+        printf("Queue Underflow!");
+        return -1;
+    }
+    struct Queue *t = front;
+    front = front->next;
+    int d = t->data;
+    free(t);
+    return d;
+}
+
+int isEmpty(){
+    if(front == NULL)
+        return 1;
+    else
+        return 0;
+}
+
+int frontVal(){
+    if(front != NULL)
+        return front->data;
+    else
+        return -1;
+}
+
+in rearVal(){
+    if(rear != NULL)
+        return rear->data;
+    else
+        return -1;
+}
+
+void queueReversePrint(){
+    int t = deQueue();
+    if (front != NULL){
+        queueReversePrint();
+    }
+    printf("%d ", t);
+}
+
+int main(){
+    int n;
+    scanf("%d", &n);
+
+    while(n--){
+        int v;
+        scanf("%d", &v);
+        enQueue(v);
+    }
+
+    queueReversePrint();
+}
+```
+
+Non-recursive print:
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Queue{
+    int data;
+    struct Queue *next;
+} *front = NULL, *rear = NULL;
+
+void enQueue(int val){
+    struct Queue *n = (struct Queue *)malloc(sizeof(struct Queue));
+    n->data = val;
+    if(rear != NULL){
+        rear->next = n;
+    }
+    if(rear == NULL){
+        front = n;
+    }
+    rear = n;
+}
+
+int deQueue(){
+    if (front == NULL){
+        printf("Queue Underflow!");
+        return -1;
+    }
+    struct Queue *t = front;
+    front = front->next;
+    int d = t->data;
+    free(t);
+    return d;
+}
+
+int isEmpty(){
+    if(front == NULL)
+        return 1;
+    else
+        return 0;
+}
+
+int frontVal(){
+    if(front != NULL)
+        return front->data;
+    else
+        return -1;
+}
+
+in rearVal(){
+    if(rear != NULL)
+        return rear->data;
+    else
+        return -1;
+}
+
+int main(){
+    int n;
+    scanf("%d", &n);
+
+    while(n--){
+        int v;
+        scanf("%d", &v);
+        enQueue(v);
+    }
+
+    while(!isEmpty()){
+        printf("%d ", deQueue());
+    }
+}
+```
+
+
+Queue Implementation using Circular Array:
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+// hackerrank.com/cmrit25-5-ds
+// cmrgi-tp => 5432112345
+// First Program
+// Implementation of Queue using CircularArrays
+#include <stdio.h>
+int size = 0, CAPACITY = 0; // Initialize size and CAPACITY
+int front = 0, rear = 0; // Initialize front and rear
+int *arr; // Initialize the array
+
+void enQueue(int val){ // Insert a new element into the queue
+    if(size == CAPACITY) return; // Overflow
+    arr[rear] = val; // Insert the new element
+    rear = (rear + 1) % CAPACITY; // Rear increases by 1
+    size++; // Size increases by 1
+}
+
+void deQueue(){ // Delete the front element
+    if(size == 0) { return; } // Underflow
+    arr[front] = 0; // Delete the front element
+    front = (front+1) % CAPACITY; // Front increases by 1
+    size--; // Size decreases by 1
+}
+
+void queuePrint(){ // Print the queue
+    for(int i=size-1;i>=0;i--) printf("%d ", arr[i]); // Print the elements in the queue
+}
+
+int main( ){ // Main function
+    int n; // The number of elements in the queue
+    scanf("%d", &n); // Read the number of elements
+    CAPACITY = n; // Set the capacity
+    arr = malloc(sizeof(int) * n); // Allocate memory for the array
+    for(int i=0;i<n;i++) { // Read the elements in the queue
+        int t; // A temporary variable
+        scanf("%d", &t); // Read an element
+        enQueue(t); // Insert the element into the queue
+    }
+    queuePrint(); // Print the queue
+}
+```

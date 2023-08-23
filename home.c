@@ -1,67 +1,47 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-struct SLL{
-    int data; struct SLL *next;
-}*head = NULL, *tail = NULL;
+int top = -1;
 
-void push(int v){
-    struct SLL *n = malloc(sizeof(struct SLL));
-    n->data = v;
-    n->next = head;
-    if(head == NULL) 
-        tail = n;//if list is empty, firstNode is also tail
-    head = n;
+void push(char* stack, char c){
+    stack[++top] = c;
 }
 
-void printSLL(struct SLL *p){
-    while(p!=NULL) { printf("%d ", p->data); p=p->next; }
+void pop(char* stack){
+    top--;
 }
-void append(int v){
-  if(head == NULL) { push(v); return; }//1
-  struct SLL *n = malloc(sizeof(struct SLL)); n->data = v;
-  tail->next = n;
-  tail = n;
+
+char* isBalanced(char* s) {
+    int n = strlen(s);
+    char stack[10000];
+    for(int i=0; i<n/2; i++){
+        push(stack, s[i]);
+    }
+
+    for(int i=n/2; i<n; i++){
+        if(stack[top] == '(' && s[i] == ')'){
+            pop(stack);
+        }
+        else if(stack[top] == '[' && s[i] == ']'){
+            pop(stack);
+        }
+        else if(stack[top] == '{' && s[i] == '}'){
+            pop(stack);
+        }
+    }
+
+    if(top == -1){
+        return "YES";
+    }
+    else{
+        return "NO";
+    }
 }
-void delete(int v){
-    //Write Code Here!
-    struct SLL *p = head, *prev = NULL;
-    // If linked list is empty
-    if(p==NULL) 
-        return;
-    // Iterate over the list till we find the key to be deleted
-    while(p!=NULL && p->data!=v) {
-        prev = p;
-        p = p->next;
-    }
-    // If key is present at head, move head to next node
-    if(prev==NULL) {
-        head = head->next;
-    }
-    // If key is present anywhere else
-    else 
-        prev->next = p->next;
-    // Free memory
-    free(p);
-}
-//DO NOT EDIT THE CODE BELOW IN ANYWAY!!
-int main()
-{
-    int n1, n2;scanf("%d%d",&n1, &n2);
-    while(n1--)
-    {
-        int k;
-        scanf("%d",&k);
-        push(k);x
-    }
-  	while(n2--)
-    {
-        int k;
-        scanf("%d",&k);
-        append(k);
-    }
-  int k;
-        scanf("%d",&k);
-        delete(k);
-    printSLL(head);
+
+int main(){
+    char s[10000];
+    scanf("%9999s", s);
+    printf("%s", isBalanced(s));
+    return 0;
 }
