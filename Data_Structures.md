@@ -825,3 +825,18 @@ But if trees are used, the searching time would be $O(log_2 n)$.
 |-------|:---:|:-----:|:-------:|:--------:|
 | Array | 100 | 10000 | 1000000 | 10000000 |
 | Tree  |  7  |  13   |    20   |    23    |
+
+
+## Tree Traversal
+
+1. Inorder Traversal
+
+```c
+
+if(node == NULL)
+    return;
+search(left);
+print(node);
+search(right);
+
+```
