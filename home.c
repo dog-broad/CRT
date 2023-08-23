@@ -26,26 +26,28 @@ void inorder(struct BinaryTree * r){ //Ascending Order
 }
 void insert(int val){ // INSERTS the val into the tree
    // WRITE CODE HERE
-    struct BinaryTree *n = createNode(val);
     if(root == NULL){
-        root = n;
+        root = createNode(val);
         return;
     }
-    struct BinaryTree *temp = root;
-    for(;;){
+    for(struct BinaryTree *temp = root; temp!= NULL;){
         if(val < temp->data){
             if(temp->left == NULL){
-                temp->left = n;
-                return;
+                temp->left = createNode(val);
+                break;
             }
-            temp = temp->left;
+            else{
+                temp = temp->left;
+            }
         }
         else{
             if(temp->right == NULL){
-                temp->right = n;
-                return;
+                temp->right = createNode(val);
+                break;
             }
-            temp = temp->right;
+            else{
+                temp = temp->right;
+            }
         }
     }
 }
