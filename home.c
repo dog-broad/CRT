@@ -10,31 +10,46 @@ struct BinaryTree{ // Properties of Node
 } *root;
 struct BinaryTree * createNode(int v){// Create a New Node
     //WRITE CODE HERE
-    struct BinaryTree *n = (struct BinaryTree*)malloc(sizeof(struct BinaryTree));
-    n -> data = v;
-    n -> left = NULL;
-    n -> right = NULL;
+    struct BinaryTree *n = malloc(sizeof(struct BinaryTree));
+    n->data = v;
+    n->left = NULL;
+    n->right = NULL;
     return n;
 }
 void inorder(struct BinaryTree * r){ //Ascending Order 
     //WRITE CODE HERE
-    if(r == NULL) 
+    if(r == NULL)
         return;
-    inorder(r -> left);
-    printf("%d ", r -> data);
-    inorder(r -> right);
+    inorder(r->left);
+    printf("%d ", r->data);
+    inorder(r->right);
 }
-
+void insert(int val){ // INSERTS the val into the tree
+   // WRITE CODE HERE
+    if(root == NULL){
+        root = createNode(val);
+        return;
+    }
+    for(struct BinaryTree *temp = root; temp!= NULL;){
+        if(val <= temp->data){
+            if(temp->left == NULL){
+                temp->left = createNode(val);
+            }
+            else{
+                temp = temp->left;
+            }
+        }
+        else{
+            if(temp->right == NULL){
+                temp->right = createNode(val);
+            }
+            else{
+                temp = temp->right;
+            }
+        }
+    }
+}
 int main( ){ 
-        int arr[9]; for(int i=0;i<9;i++) scanf("%d", &arr[i]);  
-        root = createNode(arr[0]);
-        root->left = createNode(arr[1]);
-        root->right = createNode(arr[2]);
-        root->left->left = createNode(arr[3]);
-        root->left->right = createNode(arr[4]);
-        root->right->right = createNode(arr[5]);
-        root->left->left->left = createNode(arr[6]);
-        root->left->left->right = createNode(arr[7]);
-        root->right->right->left = createNode(arr[8]);
+        int n; scanf("%d", &n); for(int i=0;i<n;i++) { int t; scanf("%d", &t); insert(t); }   
         inorder(root); 
 }
