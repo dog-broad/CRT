@@ -852,3 +852,41 @@ search(right);
 
 ```
 
+**Output:**
+```
+20 21 23 26 27 35
+```
+
+2. Preorder Traversal
+
+```c
+
+if(node == NULL)
+    return;
+print(node);
+search(left);
+search(right);
+
+```
+
+**Output:**
+```
+23 21 20 27 26 35
+```
+
+3. Postorder Traversal
+
+```c
+
+if(node == NULL)
+    return;
+search(left);
+search(right);
+print(node);
+
+```
+
+**Output:**
+```
+20 21 26 35 27 23
+```
