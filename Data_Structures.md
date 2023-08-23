@@ -774,6 +774,15 @@ struct Tree *createNode(int val){
     return n;
 };
 
+void preoerder(strcut Tree *t){
+    if(t==NULL) 
+        break;
+    printf("%d ", t->data);
+    preorder(t->left);
+    preorder(t->right);
+    preorder(t->middle);
+}
+
 int main(){
     /*
 
