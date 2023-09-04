@@ -937,28 +937,13 @@ int main(){
 }
 ```
 
-```c
-#include <stdio.h>
-#include <stdlib.h>
+Define Traverse: Going through something
+Tree Traversal: Going through tree
 
-void insert(int val){
-    if(root == NULL){
-        root = createNode(val);
-        return;
-    }
-    struct BinaryTree *r = root;
-    *p = root;
-    while(r != NULL){
-        p = r;
-        if(val == r->data)
-            return;
-        else if(val < r->data)
-            r = r->left;
-        else if(val > r->data)
-            r = r->right;
-    }
-    if(val < p->data)
-        p->left = createNode(val);
-    else if(val > p->data)
-        p->right = createNode(val);
-}
+1. Depth First Search(DFS): Priority is reaching destination.
+    A. Inorder Traversal: LPR, RPL
+    B. Preorder Traversal: PLR, PRL
+    C. Postorder Traversal: LRP, RLP
+
+2. Breadth First Search(BFS): Priority is visiting all the nodes in the same level.
+    A. Level Order Traversal: LR, RL
