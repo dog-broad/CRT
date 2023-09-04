@@ -746,6 +746,7 @@ It is an ADT(Abstract Data Type) that stores data in a hierarchical manner. It i
 ## Tree Terminologies
 
 Root ⇒ The first node in the given tree. 
+Leaf node ⇒ The node that does not have any children or the node before null link.
 
 
 ## Tree Implementation
