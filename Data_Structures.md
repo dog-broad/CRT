@@ -947,3 +947,15 @@ Tree Traversal: Going through tree
 
 2. Breadth First Search(BFS): Priority is visiting all the nodes in the same level.
     A. Level Order Traversal: LR, RL
+
+```
+        12
+      /    \
+     6     13
+    / \      \
+   3   7     14
+
+Inorder Traversal: 3 6 7 12 13 14
+Preorder Traversal: 12 6 3 7 13 14
+Postorder Traversal: 3 7 6 14 13 12
+```
