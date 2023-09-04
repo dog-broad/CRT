@@ -936,3 +936,29 @@ int main(){
     inorder(root);
 }
 ```
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+void insert(int val){
+    if(root == NULL){
+        root = createNode(val);
+        return;
+    }
+    struct BinaryTree *r = root;
+    *p = root;
+    while(r != NULL){
+        p = r;
+        if(val == r->data)
+            return;
+        else if(val < r->data)
+            r = r->left;
+        else if(val > r->data)
+            r = r->right;
+    }
+    if(val < p->data)
+        p->left = createNode(val);
+    else if(val > p->data)
+        p->right = createNode(val);
+}
