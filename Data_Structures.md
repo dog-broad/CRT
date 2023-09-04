@@ -891,3 +891,48 @@ print(node);
 ```
 20 21 26 35 27 23
 ```
+
+## Binary Search Tree Implementation
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct BinaryTree{
+    int data;
+    struct BinaryTree *left, *right;
+} *root = NULL;
+
+struct BinaryTree *createNode(int  val){
+    struct BinaryTree *n = malloc(sizeof(struct BinaryTree));
+    n->data = val;
+    n->left = n->right = NULL;
+    return n;
+};
+
+/*
+
+            56
+          /    \
+         12    77
+        /  \     \
+       2   14    90
+*/
+
+void inorder(struct BinaryTree *tmp){ // ascending LPR
+     if(tmp == NULL) return;
+     inorder(tmp->left);
+     printf("%d ", tmp->data);
+     inorder(tmp->right);
+}
+
+int main(){
+    root = createNode(56);
+    root->left = createNode(12);
+    root->right  = createNode(77);
+    root->left->left = createNode(2);
+    root->left->right = createNode(14);
+    root->right->right = createNode(90);
+    inorder(root);
+}
+```
