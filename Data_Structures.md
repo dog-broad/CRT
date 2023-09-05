@@ -993,6 +993,7 @@ struct BinaryTree *createNode(int  val){
 /*
 
             36
+          /    \   
          /      \
         8       39
        / \      / \
