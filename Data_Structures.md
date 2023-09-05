@@ -959,3 +959,57 @@ Inorder Traversal: 3 6 7 12 13 14
 Preorder Traversal: 12 6 3 7 13 14
 Postorder Traversal: 3 7 6 14 13 12
 ```
+
+
+## Finding the height of a tree
+
+Height of a tree can be defined as the the distance from the deepest leaf node to the root node.
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct BinaryTree{
+    int data;
+    struct BinaryTree *left, *right;
+} *root = NULL;
+
+struct BinaryTree *createNode(int  val){
+    struct BinaryTree *n = malloc(sizeof(struct BinaryTree));
+    n->data = val;
+    n->left = n->right = NULL;
+    return n;
+};
+
+/*
+
+            3
+         /     \
+        1       5
+               / \
+              4   7
+                 /
+                6
+*/
+
+int height(struct BinaryTree *tmp){
+    if(tmp == NULL) 
+        return -1;
+    int leftHeight = height(tmp->left);
+    int rightHeight = height(tmp->right);
+    if(leftHeight > rightHeight)
+        return leftHeight + 1;
+    else
+        return rightHeight + 1;
+}
+
+int main(){
+    root = createNode(3);
+    root->left = createNode(1);
+    root->right  = createNode(5);
+    root->right->left = createNode(4);
+    root->right->right = createNode(7);
+    root->right->right->left = createNode(6);
+    printf("%d", height(root));
+}
+```
