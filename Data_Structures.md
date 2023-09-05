@@ -965,6 +965,9 @@ Postorder Traversal: 3 7 6 14 13 12
 
 Height of a tree can be defined as the the distance from the deepest leaf node to the root node.
 
+**Algorithm:**
+
+
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -983,13 +986,13 @@ struct BinaryTree *createNode(int  val){
 
 /*
 
-            3
-         /     \
-        1       5
-               / \
-              4   7
-                 /
-                6
+            36
+         /      \
+        8       39
+       / \      / \
+      3   9   38  40
+              /
+             37
 */
 
 int height(struct BinaryTree *tmp){
@@ -1003,13 +1006,3 @@ int height(struct BinaryTree *tmp){
         return rightHeight + 1;
 }
 
-int main(){
-    root = createNode(3);
-    root->left = createNode(1);
-    root->right  = createNode(5);
-    root->right->left = createNode(4);
-    root->right->right = createNode(7);
-    root->right->right->left = createNode(6);
-    printf("%d", height(root));
-}
-```
