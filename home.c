@@ -1,49 +1,48 @@
-//DO NOT EDIT ANY  OF THE CODE!
-// Binary Tree Implementation
 #include <stdio.h>
 #include <stdlib.h>
-struct BinaryTree{ // Properties of Node
-    //WRITE CODE HERE
+
+struct BinaryTree{
     int data;
-    struct BinaryTree *left;
-    struct BinaryTree *right;
-} *root;
-struct BinaryTree * createNode(int v){// Create a New Node
-    //WRITE CODE HERE
-    struct BinaryTree *n = (struct BinaryTree *)malloc(sizeof(struct BinaryTree));
-    n->data = v;
-    n->left = NULL;
-    n->right = NULL;
+    struct BinaryTree *left, *right;
+} *root = NULL;
+
+struct BinaryTree *createNode(int  val){
+    struct BinaryTree *n = malloc(sizeof(struct BinaryTree));
+    n->data = val;
+    n->left = n->right = NULL;
     return n;
-}
-void inorder(struct BinaryTree * r){ //Ascending Order 
-    //WRITE CODE HERE
-    if(r == NULL)
-        return;
-    inorder(r->left);
-    printf("%d ", r->data);
-    inorder(r->right);
-}
-void insert(int val){ // INSERTS the val into the tree
-   // WRITE CODE HERE
-    if(root == NULL){
-        root = createNode(val);
-        return;
-    }
-    struct BinaryTree *temp = root, *parent = NULL;
-    while(temp != NULL){
-        parent = temp;
-        if(val < temp->data)
-            temp = temp->left;
-        else
-            temp = temp->right;
-    }
-    if(val < parent->data)
-        parent->left = createNode(val);
+};
+
+/*
+
+            36
+         /      \
+        8       39
+       / \      / \
+      3   9   38  40
+              /
+             37
+*/
+
+int height(struct BinaryTree *tmp){
+    if(tmp == NULL) 
+        return 0;
+    int leftHeight = height(tmp->left);
+    int rightHeight = height(tmp->right);
+    if(leftHeight > rightHeight)
+        return leftHeight + 1;
     else
-        parent->right = createNode(val);
+        return rightHeight + 1;
 }
-int main( ){ 
-        int n; scanf("%d", &n); for(int i=0;i<n;i++) { int t; scanf("%d", &t); insert(t); }   
-        inorder(root); 
+
+int main(){
+    root = createNode(36);
+    root->left = createNode(8);
+    root->right  = createNode(39);
+    root->left->left = createNode(3);
+    root->left->right = createNode(9);
+    root->right->left = createNode(38);
+    root->right->right = createNode(40);
+    root->right->left->left = createNode(37);
+    printf("%d", height(root));
 }
