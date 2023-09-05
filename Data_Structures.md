@@ -967,6 +967,12 @@ Height of a tree can be defined as the the distance from the deepest leaf node t
 
 **Algorithm:**
 
+- If (node == NULL) return -1
+- var leftHeight = height(node->left)
+- var rightHeight = height(node->right)
+- if (leftHeight > rightHeight) return leftHeight + 1
+- else return rightHeight + 1
+
 
 ```c
 #include <stdio.h>
@@ -997,7 +1003,7 @@ struct BinaryTree *createNode(int  val){
 
 int height(struct BinaryTree *tmp){
     if(tmp == NULL) 
-        return -1;
+        return 0;
     int leftHeight = height(tmp->left);
     int rightHeight = height(tmp->right);
     if(leftHeight > rightHeight)
@@ -1006,3 +1012,15 @@ int height(struct BinaryTree *tmp){
         return rightHeight + 1;
 }
 
+int main(){
+    root = createNode(36);
+    root->left = createNode(8);
+    root->right  = createNode(39);
+    root->left->left = createNode(3);
+    root->left->right = createNode(9);
+    root->right->left = createNode(38);
+    root->right->right = createNode(40);
+    root->right->left->left = createNode(37);
+    printf("%d", height(root));
+}
+```
