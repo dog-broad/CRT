@@ -1081,8 +1081,27 @@ void insert(int val){
     else p->right = createNode(val);
 }
 
+int maxHeight(struct BT *tmp){
+    if(tmp == NULL) return 0;
+    int lh = maxHeight(tmp->left);
+    int rh = maxHeight(tmp->right);
+    lh > rh ? lh++ : rh++;
+}
+
 void levelOrder(struct BT *tmp, int ind){
     if(ind == 0) printf("%d ", tmp->data);
     if(tmp->left != NULL) levelOrder(tmp->left, ind - 1);
     if(tmp->right != NULL) levelOrder(tmp->right, ind + 1);
 }
+
+int main(){
+    int n;
+    scanf("%d", &n);
+    while(n--){
+        int v;
+        scanf("%d", &v);
+        insert(v);
+    }
+    levelOrder(root, );
+}
+```
