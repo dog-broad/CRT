@@ -1025,3 +1025,64 @@ int main(){
     printf("%d", height(root));
 }
 ```
+
+## Level Order Traversal
+
+```mermaid
+graph TD
+    A[23] --> B[14]
+    A --> C[25]
+    B --> D[13]
+    B --> E[15]
+    C --> F[30]
+    F --> G[27]
+```
+
+**Algorithm:**
+
+- if(ind == 0) print
+- if(n == NULL) exit
+- Traverse to the left with ind = ind - 1
+- Traverse to the right with ind = ind + 1
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct BT{
+    int data;
+    struct BT *left, *right;
+} *root = NULL;
+
+
+struct BT *createNode(int val){
+    struct BT *n = malloc(sizeof(struct BT));
+    n->data = val;
+    n->left = n->right = NULL;
+    return n;
+};
+
+void insert(int val){
+    if(root == NULL){
+        root = createNode(val);
+        return;
+    }
+    struct BT *temp = root, *p = root;
+    while(temp != NULL){
+        p = temp;
+        if(val == temp->data)
+            return;
+        else if(val < temp->data)
+            temp = temp->left;
+        else if(val > temp->data)
+            temp = temp->right;
+    }
+    if(val < p->data) p->left = createNode(val);
+    else p->right = createNode(val);
+}
+
+void levelOrder(struct BT *tmp, int ind){
+    if(ind == 0) printf("%d ", tmp->data);
+    if(tmp->left != NULL) levelOrder(tmp->left, ind - 1);
+    if(tmp->right != NULL) levelOrder(tmp->right, ind + 1);
+}
