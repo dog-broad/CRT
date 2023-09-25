@@ -371,10 +371,12 @@ insertBefore(k1, k2) ⇒ Insert k2 before k1
 1. If list is empty, Do nothing
 2. If k1 is the head, push(k2)
 3. Search for Node before k1(p)
-    3a. If k1 does not exist ⇒ Do nothing
-    3b1. Create a node, insert a value k2
-    3b2. n next is k1(p→next)
-    3b3. p next is n
+   - 3a:
+   -     If k1 does not exist ⇒ Do nothing
+   - 3b:
+   -     3b1. Create a node, insert a value k2
+   -     3b2. n next is k1(p→next)
+   -     3b3. p next is n
 
 ## Insertion After Algorithm
 
@@ -383,10 +385,12 @@ insertAfter(k1, k2) ⇒ Insert k2 after k1
 1. If list is empty, Do nothing
 2. If k1 is the tail, append(k2)
 3. Search for Node k1(p)
-    3a. If k1 does not exist ⇒ Do nothing
-    3b1. Create a node, insert a value k2
-    3b2. n next is k1(p→next)
-    3b3. p next is n
+    - 3a:
+    -     If k1 does not exist ⇒ Do nothing
+    - 3b:
+    -     3b1. Create a node, insert a value k2
+    -     3b2. n next is k1(p→next)
+    -     3b3. p next is n
 
 ## Deletion Algorithm
 
