@@ -20,7 +20,7 @@ class Trie {
         Node tmp = root;
         int n = s.length();
         for(int i=0; i<n; i++){
-            int ind = (int) n = s.length();
+            int ind = (int) s.charAt(i) - 97;
             if(tmp.array[ind] == null)
                 tmp.array[ind] = new Node();
             tmp = tmp.array[ind];
@@ -32,7 +32,7 @@ class Trie {
         Node tmp = root;
         int n = s.length();
         for(int i=0; i<n; i++){
-            int ind = (int) n = s.length();
+            int ind = (int) s.charAt(i) - 97;
             if(tmp.array[ind] == null)
                 return false;
             tmp = tmp.array[ind];
