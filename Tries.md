@@ -149,3 +149,57 @@ class Solution {
     }
 }
 ```
+
+
+** Count of Distinct Strings **
+
+- Given a string of length N of lowercase alphabet characters. The task is to complete the function countDistinctSubstring(), which returns the count of total number of distinct substrings of this string.
+
+Brute Force Approach:
+- Unoptimized
+```java
+class GfG
+{
+   public static int countDistinctSubstring(String st)
+   {
+       int n = st.length();
+       HashSet <String> hs = new HashSet<>();
+       for(int i =0; i<n; i++){
+           for(int j=i; j<n; j++){
+               hs.add(st.subaString(i, j+1));
+           }
+       }
+       return hs.size() + 1;
+   }
+}
+```
+
+- Using Trie
+
+```java
+class Trie{
+    Trie array[];
+    Trie(){
+        array = new Trie[26];
+    }
+}
+
+class GfG{
+    public static int countDistinctSubstring(String st){
+        int n = st.length(), tc = 0;
+        Trie root = new Trie();
+        for(int i=0; i<n; i++){
+            Trie tmp = root;
+            for(int j=i; j<n; j++){
+                int ind = (int) st.charAt(j) - 97;
+                if(tmp.array[ind] == null){
+                    tmp.array[ind] = new Trie();
+                    tc++;
+                }
+                tmp = tmp.array[ind];
+            }
+        }
+        return tc + 1;
+    }
+}
+```
