@@ -371,12 +371,10 @@ insertBefore(k1, k2) ⇒ Insert k2 before k1
 1. If list is empty, Do nothing
 2. If k1 is the head, push(k2)
 3. Search for Node before k1(p)
-   - 3a:
-   -     If k1 does not exist ⇒ Do nothing
-   - 3b:
-   -     3b1. Create a node, insert a value k2
-   -     3b2. n next is k1(p→next)
-   -     3b3. p next is n
+    3a. If k1 does not exist ⇒ Do nothing
+    3b1. Create a node, insert a value k2
+    3b2. n next is k1(p→next)
+    3b3. p next is n
 
 ## Insertion After Algorithm
 
@@ -385,12 +383,10 @@ insertAfter(k1, k2) ⇒ Insert k2 after k1
 1. If list is empty, Do nothing
 2. If k1 is the tail, append(k2)
 3. Search for Node k1(p)
-    - 3a:
-    -     If k1 does not exist ⇒ Do nothing
-    - 3b:
-    -     3b1. Create a node, insert a value k2
-    -     3b2. n next is k1(p→next)
-    -     3b3. p next is n
+    3a. If k1 does not exist ⇒ Do nothing
+    3b1. Create a node, insert a value k2
+    3b2. n next is k1(p→next)
+    3b3. p next is n
 
 ## Deletion Algorithm
 
@@ -1109,3 +1105,46 @@ int main(){
     levelOrder(root, );
 }
 ```
+
+Delete algorithm:
+
+1. If tree is empty, do nothing (return)
+  
+```
+consider, 
+
+     67 (root, par)
+    /  \
+(n)14  NULL     delete 67 
+  /  \
+ 11  65
+
+```
+
+2. If n right is NULL, par→left = n→left, make 14 new root
+
+```
+
+        67 (root, par)
+      /    \
+    NULL   69 (n)               delete 69              
+          /  \
+         68  NULL
+
+```
+ 
+3. If n right is NULL, par→right = n→left
+
+```
+
+        67 (root, par)
+      /    \
+     55    88 (n)               delete 67          
+          /   \
+         68    89
+        /  \   / \
+       68  73 87 NULL
+```
+
+4. Deleting a node, whose left and right are not NULL, replace with inorder successor and delete that node.
+   - Inorder Successor: Left most node in the right subtree. 
