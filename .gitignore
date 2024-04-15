@@ -1,6 +1,7 @@
 .vscode/*
 .cph/*
 *.exe
+*.class
 test.txt
 home.exe
 .vscode/ltex.dictionary.en-US.txt
