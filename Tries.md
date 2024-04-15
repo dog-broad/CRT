@@ -16,3 +16,12 @@ graph TD
     i --> m
     m --> e
 ```
+
+"Bar", "Bare", "Bin", "Bone", "Bina", "Bani", "Boni"
+
+```mermaid
+grapg TD
+    A --> n
+    n --> a
+    n --> d
+```
